@@ -4,7 +4,7 @@
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
              version="2.2">
     <persistence-unit name="default">
-        <class>entity.notificao</class>
+        <class>entity.notificacao</class>
         <!-- Configurações de propriedades -->
         <properties>
             <!-- Configuração de conexão com o banco de dados -->
