@@ -25,4 +25,51 @@ public class Equipa {
 
     @OneToMany(mappedBy = "id_equipa")
     private Set<EquipaCompeticao> equipaCompeticoes = new HashSet<>();
+
+    @OneToMany(mappedBy = "id_equipa")
+    private Set<Piloto> pilotos = new HashSet<>();
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getNacionalidade() {
+        return nacionalidade;
+    }
+
+    public void setNacionalidade(String nacionalidade) {
+        this.nacionalidade = nacionalidade;
+    }
+
+    public Set<EquipaFavorito> getEquipasFavoritos() {
+        return equipasFavoritos;
+    }
+
+    public void setEquipasFavoritos(Set<EquipaFavorito> equipasFavoritos) {
+        this.equipasFavoritos = equipasFavoritos;
+    }
+
+    public Set<EquipaCompeticao> getEquipaCompeticoes() {
+        return equipaCompeticoes;
+    }
+
+    public void setEquipaCompeticoes(Set<EquipaCompeticao> equipaCompeticoes) {
+        this.equipaCompeticoes = equipaCompeticoes;
+    }
+
+    public Set<Piloto> getPilotos() {
+        return pilotos;
+    }
+
+    public void setPilotos(Set<Piloto> pilotos) {
+        this.pilotos = pilotos;
+    }
 }
