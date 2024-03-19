@@ -9,6 +9,25 @@
         <class>entity.Utilizador</class>
         <class>entity.TipoUtilizador</class>
         <class>entity.Favorito</class>
+        <class>entity.Competicao</class>
+        <class>entity.TipoCompeticao</class>
+        <class>entity.ResultadoPilotoId</class>
+        <class>entity.PilotoFavoritoId</class>
+        <class>entity.NotificacaoUtilizadorId</class>
+        <class>entity.EquipaFavoritoId</class>
+        <class>entity.EquipaCompeticaoId</class>
+        <class>entity.CorridaVolta</class>
+        <class>entity.CorridaStage</class>
+        <class>entity.CompeticaoFavoritoId</class>
+        <class>entity.Resultado</class>
+        <class>entity.ResultadoPiloto</class>
+        <class>entity.ResultadoPilotoId</class>
+        <class>entity.CompeticaoFavorito</class>
+        <class>entity.Corrida</class>
+        <class>entity.EquipaCompeticao</class>
+        <class>entity.EquipaFavorito</class>
+        <class>entity.Piloto</class>
+        <class>entity.PilotoFavorito</class>
 
         <!-- Configurações de propriedades -->
         <properties>
