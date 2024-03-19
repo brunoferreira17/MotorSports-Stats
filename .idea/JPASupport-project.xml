@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoGeneratorSettingsState">
+    <option name="generateClassComment" value="false" />
+    <option name="generateFieldComment" value="false" />
+    <option name="generateMethodComment" value="false" />
+    <option name="ifJavaKeywordAddSuffix" value="" />
+    <option name="ignoredFields">
+      <set>
+        <option value="" />
+      </set>
+    </option>
+    <option name="moduleName" value="MotorsportsStats" />
+    <option name="moduleNameToSettings">
+      <map>
+        <entry key="MotorsportsStats">
+          <value>
+            <ModuleSettings>
+              <option name="controllerParentDirectory" value="$PROJECT_DIR$/src/main/java" />
+              <option name="dtoParentDirectory" value="$PROJECT_DIR$/src/main/java" />
+              <option name="entityPackageName" value="entity" />
+              <option name="entityParentDirectory" value="$PROJECT_DIR$/src/main/java" />
+              <option name="generateEntity" value="false" />
+              <option name="mapperXmlParentDirectory" value="C:\Users\Diogo Pereira\Documents\Uni\Curso - 2º ano\2º Semestre\Projeto II\Projeto\src\main\resources" />
+              <option name="repositoryPackageName" value="repository" />
+              <option name="repositoryParentDirectory" value="$PROJECT_DIR$/src/main/java" />
+              <option name="serviceParentDirectory" value="$PROJECT_DIR$/src/main/java" />
+              <option name="voParentDirectory" value="$PROJECT_DIR$/src/main/java" />
+            </ModuleSettings>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="removeEntityPrefix" value="" />
+    <option name="removeFieldPrefix" value="" />
+    <option name="serializable" value="false" />
+    <option name="useJakartaEE" value="true" />
+    <option name="useLombok" value="false" />
+  </component>
+  <component name="DatabaseSettingsState">
+    <option name="database" value="Projeto" />
+    <option name="driverClass" value="org.postgresql.Driver" />
+    <option name="driverPath" value="C:\Users\Diogo Pereira\Downloads\postgresql-42.7.2.jar" />
+    <option name="port" value="5432" />
+    <option name="schema" value="public" />
+    <option name="url" value="jdbc:postgresql://localhost:5432/Projeto" />
+    <option name="username" value="postgres" />
+  </component>
+</project>
