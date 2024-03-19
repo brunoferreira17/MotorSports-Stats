@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+             version="2.2">
+    <persistence-unit name="default">
+        <class>entity.Notificacao</class>
+        <class>entity.NotificacaoUtilizador</class>
+        <class>entity.Utilizador</class>
+        <class>entity.TipoUtilizador</class>
+        <class>entity.Favorito</class>
+        <class>entity.Competicao</class>
+        <class>entity.TipoCompeticao</class>
+        <class>entity.ResultadoPilotoId</class>
+        <class>entity.PilotoFavoritoId</class>
+        <class>entity.NotificacaoUtilizadorId</class>
+        <class>entity.EquipaFavoritoId</class>
+        <class>entity.EquipaCompeticaoId</class>
+        <class>entity.CorridaVolta</class>
+        <class>entity.CorridaStage</class>
+        <class>entity.CompeticaoFavoritoId</class>
+        <class>entity.Resultado</class>
+        <class>entity.ResultadoPiloto</class>
+        <class>entity.ResultadoPilotoId</class>
+        <class>entity.CompeticaoFavorito</class>
+        <class>entity.Corrida</class>
+        <class>entity.EquipaCompeticao</class>
+        <class>entity.EquipaFavorito</class>
+        <class>entity.Piloto</class>
+        <class>entity.PilotoFavorito</class>
+
+        <!-- Configurações de propriedades -->
+        <properties>
+            <!-- Configuração de conexão com o banco de dados -->
+            <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/Projeto"/>
+            <property name="jakarta.persistence.jdbc.user" value="postgres"/>
+            <property name="jakarta.persistence.jdbc.password" value="Dp04IPVC22_"/>
+            <property name="hibernate.show_sql" value="true"/>
+
+            <!-- Configurações do provedor JPA (Hibernate, EclipseLink, etc.) -->
+            <property name="jakarta.persistence.provider" value="org.hibernate.jpa.HibernatePersistenceProvider"/>
+
+            <!-- Configurações específicas do Hibernate -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+        </properties>
+    </persistence-unit>
+</persistence>
