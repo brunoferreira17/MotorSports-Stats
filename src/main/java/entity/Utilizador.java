@@ -38,19 +38,15 @@ public class Utilizador {
     @JoinTable(
             name = "notificacao_utilizador",
             joinColumns = @JoinColumn(name = "id_utilizador"),
-            inverseJoinColumns = @JoinColumn(name = "id_notificacao")
+            inverseJoinColumns   = @JoinColumn(name = "id_notificacao")
     )
     private Set<Notificacao> notificacoes = new HashSet<>();
 
-    @OneToMany(mappedBy = "utilizador")
+    @OneToMany(mappedBy = "id_utilizador")
     private Set<Favorito> favoritos = new HashSet<>();
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public TipoUtilizador getTipo() {
