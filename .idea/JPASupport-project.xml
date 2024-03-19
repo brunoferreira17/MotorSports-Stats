@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AutoGeneratorSettingsState">
-    <option name="generateClassComment" value="false" />
-    <option name="generateFieldComment" value="false" />
-    <option name="generateMethodComment" value="false" />
     <option name="ifJavaKeywordAddSuffix" value="" />
     <option name="ignoredFields">
       <set>
@@ -33,7 +30,6 @@
     </option>
     <option name="removeEntityPrefix" value="" />
     <option name="removeFieldPrefix" value="" />
-    <option name="serializable" value="false" />
     <option name="useJakartaEE" value="true" />
     <option name="useLombok" value="false" />
   </component>
