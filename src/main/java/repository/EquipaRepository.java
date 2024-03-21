@@ -28,6 +28,15 @@ public interface EquipaRepository extends JpaRepository<Equipa, Long>, JpaSpecif
         em.getTransaction().commit();
     }
 
+    // Método para atualizar a Equipa
+    public static void atualizar(Equipa equipa)
+    {
+        EntityManager em = DbConnection.getEntityManager();
+        em.getTransaction().begin();
+        em.merge(equipa); // Atualiza a Equipa do banco de dados
+        em.getTransaction().commit();
+    }
+
     // Método para encontrar a equipa pelo seu ID
     public static Equipa findEquipa(int id)
     {

@@ -28,6 +28,15 @@ public interface PilotoRepository extends JpaRepository<Piloto, Long>, JpaSpecif
         em.getTransaction().commit();
     }
 
+    // Método para atualizar o Piloto
+    public static void atualizar(Piloto piloto)
+    {
+        EntityManager em = DbConnection.getEntityManager();
+        em.getTransaction().begin();
+        em.merge(piloto); // Atualiza o Piloto do banco de dados
+        em.getTransaction().commit();
+    }
+
     // Método para encontrar o Piloto pelo seu ID
     public static Piloto findPiloto(int id)
     {

@@ -2,6 +2,7 @@ package repository;
 
 
 import entity.Notificacao;
+import entity.Piloto;
 import entity.TipoUtilizador;
 import entity.Utilizador;
 import jakarta.persistence.EntityManager;
@@ -28,6 +29,15 @@ public interface UtilizadorRepository extends JpaRepository<Utilizador, Long>, J
         EntityManager em = DbConnection.getEntityManager();
         em.getTransaction().begin();
         em.remove(utilizador); // Remove o utilizador do banco de dados
+        em.getTransaction().commit();
+    }
+
+    // Método para atualizar o Utilizador
+    public static void atualizar(Utilizador utilizador)
+    {
+        EntityManager em = DbConnection.getEntityManager();
+        em.getTransaction().begin();
+        em.merge(utilizador); // Atualiza o Utilizador do banco de dados
         em.getTransaction().commit();
     }
 
