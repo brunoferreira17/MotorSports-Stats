@@ -12,7 +12,8 @@ import java.util.List;
 import java.util.Set;
 
 @Repository
-public interface NotificacaoRepository extends JpaRepository<Notificacao, Long>, JpaSpecificationExecutor<Notificacao> {
+public interface NotificacaoRepository extends JpaRepository<Notificacao, Long>, JpaSpecificationExecutor<Notificacao>
+{
 
         public static void criar(Notificacao notif)
         {
@@ -48,6 +49,6 @@ public interface NotificacaoRepository extends JpaRepository<Notificacao, Long>,
 
         public static List<Notificacao> listarWithType(String tipoNotificacao)
         {
-            return DbConnection.getEntityManager().createQuery("from Notificacao where Utilizador. ", Notificacao.class).setParameter(1, tipoNotificacao).getResultList();
+            return DbConnection.getEntityManager().createQuery("from Notificacao where tipoNotificacao = ?1", Notificacao.class).setParameter(1, tipoNotificacao).getResultList();
         }
 }
