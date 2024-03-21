@@ -14,21 +14,24 @@ import java.util.Set;
 @Repository
 public interface NotificacaoUtilizadorRepository extends JpaRepository<NotificacaoUtilizador, Long>, JpaSpecificationExecutor<NotificacaoUtilizador> {
 
-    public static void criar(NotificacaoUtilizador notifUtil){
+    public static void criar(NotificacaoUtilizador notifUtil)
+    {
         EntityManager em = DbConnection.getEntityManager();
         em.getTransaction().begin();
         em.persist(notifUtil);
         em.getTransaction().commit();
     }
 
-    public static void apagar(NotificacaoUtilizador notifUtil){
+    public static void apagar(NotificacaoUtilizador notifUtil)
+    {
         EntityManager em = DbConnection.getEntityManager();
         em.getTransaction().begin();
         em.remove(notifUtil);
         em.getTransaction().commit();
     }
 
-    public static Utilizador findUtilizadorByNotificacaoId(long idNotificacao) {
+    public static Utilizador findUtilizadorByNotificacaoId(long idNotificacao)
+    {
         NotificacaoUtilizador notifUtil = DbConnection.getEntityManager().find(NotificacaoUtilizador.class, idNotificacao);
         return notifUtil != null ? notifUtil.getIdUtilizador() : null;
     }
