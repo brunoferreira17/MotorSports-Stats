@@ -36,7 +36,7 @@ public interface NotificacaoRepository extends JpaRepository<Notificacao, Long>,
             return DbConnection.getEntityManager().find(Notificacao.class, id);
         }
 
-        public static Set<Notificacao> findNotificacaoUtilizador(long id)
+        public static Set<Notificacao> findNotificacaoUtilizador(int id)
         {
             Utilizador utilizador = DbConnection.getEntityManager().find(Utilizador.class, id);
             return utilizador.getNotificacaos();

@@ -43,10 +43,9 @@ public interface CorridaRepository extends JpaRepository<Corrida, Long>, JpaSpec
         return DbConnection.getEntityManager().find(Corrida.class, id); // Retorna a Corrida com o ID fornecido
     }
 
-    // Método para listar todas as Equipas
+    // Método para listar todas as Corridas
     public static List<Corrida> listar()
     {
         return DbConnection.getEntityManager().createQuery("from Corrida", Corrida.class).getResultList(); // Retorna uma lista de todas as Corridas no banco de dados
     }
-
 }

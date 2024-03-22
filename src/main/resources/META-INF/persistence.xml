@@ -35,9 +35,7 @@
             <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/Projeto"/>
             <property name="jakarta.persistence.jdbc.user" value="postgres"/>
-            <property name="jakarta.persistence.jdbc.password" value="Dp04IPVC22_"/>
             <property name="hibernate.show_sql" value="true"/>
-
             <!-- Configurações do provedor JPA (Hibernate, EclipseLink, etc.) -->
             <property name="jakarta.persistence.provider" value="org.hibernate.jpa.HibernatePersistenceProvider"/>
 
