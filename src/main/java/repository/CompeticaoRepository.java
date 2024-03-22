@@ -43,7 +43,7 @@ public interface CompeticaoRepository extends JpaRepository<Competicao, Long>, J
         return DbConnection.getEntityManager().find(Competicao.class, id); // Retorna a Competicao com o ID fornecido
     }
 
-    // Método para listar todas as Equipas
+    // Método para listar todas as Competiçoes
     public static List<Competicao> listar()
     {
         return DbConnection.getEntityManager().createQuery("from Competicao ", Competicao.class).getResultList(); // Retorna uma lista de todas as Competicoes no banco de dados
