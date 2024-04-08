@@ -5,13 +5,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="523.0" prefWidth="793.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="523.0" prefWidth="793.0"  xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane prefHeight="101.0" prefWidth="793.0" style="-fx-background-color: #4599de;">
          <children>
             <ImageView fitHeight="79.0" fitWidth="83.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/capacete.png" />
+                  <Image url="@../resources/images/capacete.png" />
                </image>
             </ImageView>
             <Label layoutX="99.0" layoutY="20.0" prefHeight="61.0" prefWidth="214.0" text="MotorSport-Stats" textAlignment="CENTER">

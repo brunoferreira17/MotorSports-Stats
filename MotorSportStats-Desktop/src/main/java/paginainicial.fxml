@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="523.0" prefWidth="793.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="422.0" fitWidth="787.0" layoutX="198.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/images/pista.png" />
+         </image>
+      </ImageView>
+      <AnchorPane prefHeight="101.0" prefWidth="793.0" style="-fx-background-color: #4599de;">
+         <children>
+            <ImageView fitHeight="79.0" fitWidth="83.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/images/capacete.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="99.0" layoutY="20.0" prefHeight="61.0" prefWidth="214.0" text="MotorSport-Stats" textAlignment="CENTER">
+               <font>
+                  <Font name="Harlow Solid Italic" size="28.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Button layoutX="343.0" layoutY="371.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="107.0" style="-fx-background-color: #4599de;" text="Login" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="13.0" />
+         </font>
+      </Button>
+      <Button layoutX="343.0" layoutY="207.0" mnemonicParsing="false" onMouseEntered="-fx-background-color: #000000;" prefHeight="55.0" prefWidth="107.0" style="-fx-background-color: #4599de;" text="Registrar" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="13.0" />
+         </font>
+      </Button>
+      <Label layoutX="55.0" layoutY="101.0" prefHeight="101.0" prefWidth="134.0" text="Bem-Vindo(a)">
+         <font>
+            <Font name="Bernard MT Condensed" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="629.0" layoutY="473.0" text="Fechar" />
+   </children>
+</AnchorPane>
