@@ -1,0 +1,14 @@
+.botao-fechar:hover
+{
+   -fx-text-fill: red;
+}
+
+.botao-registrar:hover
+{
+    -fx-text-fill: black;
+}
+
+.botao-login:hover
+{
+    -fx-text-fill: black;
+}
