@@ -8,10 +8,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
+public class Start extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("paginainicial.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Start.class.getResource("paginainicial.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("MotorSport-Stats");
         Image icon = new Image(Recursos.SceneSwitcher.class.getResourceAsStream("capacete.png"));

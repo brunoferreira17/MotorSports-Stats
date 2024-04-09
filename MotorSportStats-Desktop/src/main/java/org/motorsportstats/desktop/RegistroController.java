@@ -2,7 +2,11 @@ package org.motorsportstats.desktop;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+
+import java.time.LocalDate;
 
 public class RegistroController
 {
@@ -11,7 +15,14 @@ public class RegistroController
     @FXML
     private TextField nome_usuario;
     @FXML
-    private TextField password_usuario;
+    private PasswordField password_usuario;
+    @FXML
+    private TextField email_usuario;
+    @FXML
+    private TextField contacto_usuario;
+    @FXML
+    private DatePicker datanascimento_usuario;
+
 
 
     @FXML
@@ -32,5 +43,21 @@ public class RegistroController
         return password_usuario.getText();
     }
 
+    @FXML
+    public String getemail_usuario()
+    {
+        return email_usuario.getText();
+    }
 
+    @FXML
+    public String getcontacto_usuario()
+    {
+        return contacto_usuario.getText();
+    }
+
+    @FXML
+    public LocalDate getdatanascimento_usuario()
+    {
+        return datanascimento_usuario.getValue();
+    }
 }

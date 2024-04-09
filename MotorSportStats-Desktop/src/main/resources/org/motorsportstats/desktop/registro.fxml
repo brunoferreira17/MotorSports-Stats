@@ -37,19 +37,19 @@
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <TextField layoutX="95.0" layoutY="313.0" prefHeight="25.0" prefWidth="201.0" promptText="Email" />
+      <TextField fx:id="email_usuario" layoutX="95.0" layoutY="313.0" prefHeight="25.0" prefWidth="201.0" promptText="Email" />
       <Label layoutX="520.0" layoutY="198.0" prefHeight="19.0" prefWidth="95.0" text="Contacto" textAlignment="CENTER">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <TextField layoutX="520.0" layoutY="217.0" prefHeight="25.0" prefWidth="174.0" promptText="Contacto" />
+      <TextField fx:id="contacto_usuario" layoutX="520.0" layoutY="217.0" prefHeight="25.0" prefWidth="174.0" promptText="Contacto" />
       <Label layoutX="520.0" layoutY="280.0" prefHeight="19.0" prefWidth="125.0" text="Data de Nascimento" textAlignment="CENTER">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <DatePicker layoutX="520.0" layoutY="301.0" />
+      <DatePicker fx:id="datanascimento_usuario" layoutX="520.0" layoutY="301.0" />
       <Button fx:id="ButConfirmarRegistro" layoutX="171.0" layoutY="432.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="112.0" style="-fx-background-color: #4599de; -fx-background-radius: 10px;" styleClass="botao-confirmarRegistro" text="Registrar" textFill="WHITE">
          <font>
             <Font name="Arial Black" size="13.0" />
