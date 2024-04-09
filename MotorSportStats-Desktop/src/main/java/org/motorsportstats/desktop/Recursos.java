@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.Node;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import java.io.IOException;
 
@@ -25,6 +26,10 @@ public class Recursos
 
                 // Obter a janela principal
                 Stage stage = (Stage) node.getScene().getWindow();
+
+                //Inserir Icon
+                Image icon = new Image(SceneSwitcher.class.getResourceAsStream("capacete.png"));
+                stage.getIcons().add(icon);
 
                 // Definir a cena na janela principal
                 stage.setScene(scene);

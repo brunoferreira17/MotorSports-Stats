@@ -14,7 +14,7 @@
          <children>
             <ImageView fitHeight="79.0" fitWidth="83.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/capacete.png" />
+                  <Image url="@../desktop/images/capacete.png" />
                </image>
             </ImageView>
             <Label layoutX="99.0" layoutY="20.0" prefHeight="61.0" prefWidth="214.0" text="MotorSport-Stats" textAlignment="CENTER">

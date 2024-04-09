@@ -1,5 +1,6 @@
 package org.motorsportstats.desktop;
 
+import javafx.scene.image.Image;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -12,7 +13,9 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("paginainicial.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Pagina Inicial");
+        stage.setTitle("MotorSport-Stats");
+        Image icon = new Image(Recursos.SceneSwitcher.class.getResourceAsStream("capacete.png"));
+        stage.getIcons().add(icon);
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();

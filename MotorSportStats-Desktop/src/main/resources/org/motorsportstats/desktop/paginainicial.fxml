@@ -5,18 +5,18 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.motorsportstats.desktop.PaginaInicialController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" stylesheets="@../desktop/css/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.motorsportstats.desktop.PaginaInicialController">
    <children>
       <ImageView fitHeight="517.0" fitWidth="504.0" layoutX="149.0" layoutY="133.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/pista.png" />
+            <Image url="@../desktop/images/pista.png" />
          </image>
       </ImageView>
       <AnchorPane prefHeight="90.0" prefWidth="800.0" style="-fx-background-color: #4599de;">
          <children>
             <ImageView fitHeight="79.0" fitWidth="83.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/capacete.png" />
+                  <Image url="@../desktop/images/capacete.png" />
                </image>
             </ImageView>
             <Label layoutX="99.0" layoutY="20.0" prefHeight="61.0" prefWidth="214.0" text="MotorSport-Stats" textAlignment="CENTER">
