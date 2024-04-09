@@ -3,6 +3,6 @@ module org.motorsportstats.motorsportstatsdesktop {
     requires javafx.fxml;
 
 
-    opens org.motorsportstats.motorsportstatsdesktop to javafx.fxml;
-    exports org.motorsportstats.motorsportstatsdesktop;
+    opens org.motorsportstats.desktop to javafx.fxml;
+    exports org.motorsportstats.desktop;
 }

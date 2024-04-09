@@ -1,4 +1,4 @@
-package org.motorsportstats.motorsportstatsdesktop;
+package org.motorsportstats.desktop;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
