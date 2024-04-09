@@ -26,13 +26,12 @@
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <TextField layoutX="95.0" layoutY="195.0" prefHeight="25.0" prefWidth="201.0" promptText="Nome" />
+      <TextField fx:id="nome_usuario" layoutX="95.0" layoutY="195.0" prefHeight="25.0" prefWidth="201.0" promptText="Nome" />
       <Label layoutX="95.0" layoutY="236.0" prefHeight="19.0" prefWidth="95.0" text="Palavra-Passe" textAlignment="CENTER">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <TextField layoutX="95.0" layoutY="255.0" prefHeight="25.0" prefWidth="201.0" promptText="Palavra-Passe" />
       <Label layoutX="95.0" layoutY="294.0" prefHeight="19.0" prefWidth="95.0" text="Email" textAlignment="CENTER">
          <font>
             <Font name="Arial" size="13.0" />
@@ -71,5 +70,6 @@
             <Font name="Harlow Solid Italic" size="68.0" />
          </font>
       </Label>
+      <PasswordField fx:id="password_usuario" layoutX="95.0" layoutY="255.0" prefHeight="25.0" prefWidth="201.0" promptText="Palavra-Passe" />
    </children>
 </AnchorPane>
