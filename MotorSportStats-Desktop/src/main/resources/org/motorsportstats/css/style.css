@@ -3,12 +3,12 @@
    -fx-text-fill: red;
 }
 
-.botao-registrar:hover
+.botao-registrar:hover, .botao-login:hover, botao-confirmarRegistro:hover, botao-cancelarRegistro:hover
 {
     -fx-text-fill: black;
 }
 
-.botao-login:hover
+.botao-registrar, .botao-login, botao-confirmarRegistro, botao-cancelarRegistro
 {
-    -fx-text-fill: black;
+    -fx-text-fill: white;
 }
