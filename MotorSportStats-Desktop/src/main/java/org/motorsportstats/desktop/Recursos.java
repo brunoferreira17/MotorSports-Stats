@@ -29,6 +29,7 @@ public class Recursos
                 // Definir a cena na janela principal
                 stage.setScene(scene);
                 stage.show();
+                stage.setResizable(false);
             } catch (IOException e)
             {
                 e.printStackTrace();

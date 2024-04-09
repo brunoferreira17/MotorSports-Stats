@@ -17,5 +17,10 @@ public class PaginaInicialController
     {
         Recursos.SceneSwitcher.switchScene("registro.fxml",ButRegistrar);
     }
+    @FXML
+    private void handleButLogin()
+    {
+      Recursos.SceneSwitcher.switchScene("login.fxml",ButLogin);
+    }
 
 }
