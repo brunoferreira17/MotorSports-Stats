@@ -22,5 +22,4 @@ public class PaginaInicialController
     {
       Recursos.SceneSwitcher.switchScene("login.fxml",ButLogin);
     }
-
 }

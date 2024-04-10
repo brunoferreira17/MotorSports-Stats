@@ -4,30 +4,30 @@
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
              version="2.2">
     <persistence-unit name="default">
-        <class>entity.Notificacao</class>
-        <class>entity.NotificacaoUtilizador</class>
-        <class>entity.Utilizador</class>
-        <class>entity.TipoUtilizador</class>
-        <class>entity.Favorito</class>
-        <class>entity.Competicao</class>
-        <class>entity.TipoCompeticao</class>
-        <class>entity.ResultadoPilotoId</class>
-        <class>entity.PilotoFavoritoId</class>
-        <class>entity.NotificacaoUtilizadorId</class>
-        <class>entity.EquipaFavoritoId</class>
-        <class>entity.EquipaCompeticaoId</class>
-        <class>entity.CorridaVolta</class>
-        <class>entity.CorridaStage</class>
-        <class>entity.CompeticaoFavoritoId</class>
-        <class>entity.Resultado</class>
-        <class>entity.ResultadoPiloto</class>
-        <class>entity.ResultadoPilotoId</class>
-        <class>entity.CompeticaoFavorito</class>
-        <class>entity.Corrida</class>
-        <class>entity.EquipaCompeticao</class>
-        <class>entity.EquipaFavorito</class>
-        <class>entity.Piloto</class>
-        <class>entity.PilotoFavorito</class>
+        <class>org.motorsportstatscore.entity.Notificacao</class>
+        <class>org.motorsportstatscore.entity.NotificacaoUtilizador</class>
+        <class>org.motorsportstatscore.entity.Utilizador</class>
+        <class>org.motorsportstatscore.entity.TipoUtilizador</class>
+        <class>org.motorsportstatscore.entity.Favorito</class>
+        <class>org.motorsportstatscore.entity.Competicao</class>
+        <class>org.motorsportstatscore.entity.TipoCompeticao</class>
+        <class>org.motorsportstatscore.entity.ResultadoPilotoId</class>
+        <class>org.motorsportstatscore.entity.PilotoFavoritoId</class>
+        <class>org.motorsportstatscore.entity.NotificacaoUtilizadorId</class>
+        <class>org.motorsportstatscore.entity.EquipaFavoritoId</class>
+        <class>org.motorsportstatscore.entity.EquipaCompeticaoId</class>
+        <class>org.motorsportstatscore.entity.CorridaVolta</class>
+        <class>org.motorsportstatscore.entity.CorridaStage</class>
+        <class>org.motorsportstatscore.entity.CompeticaoFavoritoId</class>
+        <class>org.motorsportstatscore.entity.Resultado</class>
+        <class>org.motorsportstatscore.entity.ResultadoPiloto</class>
+        <class>org.motorsportstatscore.entity.ResultadoPilotoId</class>
+        <class>org.motorsportstatscore.entity.CompeticaoFavorito</class>
+        <class>org.motorsportstatscore.entity.Corrida</class>
+        <class>org.motorsportstatscore.entity.EquipaCompeticao</class>
+        <class>org.motorsportstatscore.entity.EquipaFavorito</class>
+        <class>org.motorsportstatscore.entity.Piloto</class>
+        <class>org.motorsportstatscore.entity.PilotoFavorito</class>
 
         <!-- Configurações de propriedades -->
         <properties>

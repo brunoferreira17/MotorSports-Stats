@@ -5,6 +5,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import org.motorsportstatscore.entity.Utilizador;
+import org.motorsportstatscore.repository.UtilizadorRepository;
+
 
 import java.time.LocalDate;
 
@@ -22,12 +25,6 @@ public class RegistroController
     private TextField contacto_usuario;
     @FXML
     private DatePicker datanascimento_usuario;
-
-    @FXML
-    private void handleButCancelarRegistro()
-    {
-        Recursos.SceneSwitcher.switchScene("paginainicial.fxml",ButCancelarRegistro);
-    }
 
     @FXML
     public String getnome_usuario()
@@ -57,5 +54,25 @@ public class RegistroController
     public LocalDate getdatanascimento_usuario()
     {
         return datanascimento_usuario.getValue();
+    }
+    
+    @FXML
+    private void handleButCancelarRegistro()
+    {
+        Recursos.SceneSwitcher.switchScene("paginainicial.fxml",ButCancelarRegistro);
+    }
+
+    @FXML
+    private void handleButRegistrarRegistro()
+    {
+
+        Utilizador utilizador = new Utilizador();
+        utilizador.setNome(getnome_usuario());
+        utilizador.setEmail(getemail_usuario());
+        utilizador.setSenha(getpassword_usuario());
+        utilizador.setDataNascimento(getdatanascimento_usuario());
+        utilizador.setTelefone(getcontacto_usuario());
+
+        UtilizadorRepository.criar(utilizador);
     }
 }
