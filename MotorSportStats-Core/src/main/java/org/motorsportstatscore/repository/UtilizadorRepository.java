@@ -19,7 +19,7 @@ public interface UtilizadorRepository extends JpaRepository<Utilizador, Long>, J
     }
 
     // Método para apagar um utilizador existente
-    public static void apagar(Utilizador utilizador) {
+    public default void apagar(Utilizador utilizador) {
         EntityManager em = DbConnection.getEntityManager();
         em.getTransaction().begin();
         em.remove(utilizador); // Remove o utilizador do banco de dados
