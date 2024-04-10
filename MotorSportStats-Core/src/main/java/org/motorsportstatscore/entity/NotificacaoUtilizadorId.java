@@ -4,11 +4,13 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import org.hibernate.Hibernate;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
 
 @Embeddable
 public class NotificacaoUtilizadorId implements Serializable {
+    @Serial
     private static final long serialVersionUID = 7492297625962462814L;
     @Column(name = "id_utilizador", nullable = false)
     private Integer idUtilizador;

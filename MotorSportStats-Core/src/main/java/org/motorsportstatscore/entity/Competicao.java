@@ -34,7 +34,8 @@ public class Competicao {
     private Integer totalCorridas;
 
     @ManyToMany
-    @JoinTable(joinColumns = @JoinColumn(name = "id_competicao"),
+    @JoinTable(name = "competicao_favoritos",
+            joinColumns = @JoinColumn(name = "id_competicao"),
             inverseJoinColumns = @JoinColumn(name = "id_favoritos"))
     private Set<Favorito> favoritos = new LinkedHashSet<>();
 

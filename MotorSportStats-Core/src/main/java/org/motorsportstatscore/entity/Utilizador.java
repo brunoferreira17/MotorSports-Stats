@@ -26,7 +26,7 @@ public class Utilizador {
     @Column(name = "telefone", length = 20)
     private String telefone;
 
-    @Column(name = "data_nascimento")
+    @Column(name = "data_nasc")
     private LocalDate dataNascimento;
 
     @OneToMany(mappedBy = "idUtilizador")
@@ -77,11 +77,13 @@ public class Utilizador {
         this.telefone = telefone;
     }
 
-    public LocalDate getDataNascimento() {
+    public LocalDate getDataNascimento()
+    {
         return dataNascimento;
     }
 
-    public void setDataNascimento(LocalDate dataNascimento) {
+    public void setDataNascimento(LocalDate dataNascimento)
+    {
         this.dataNascimento = dataNascimento;
     }
 

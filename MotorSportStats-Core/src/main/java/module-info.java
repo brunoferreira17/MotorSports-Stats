@@ -4,6 +4,7 @@ module org.motorsportstatscore
     requires spring.data.jpa;
     requires java.persistence;
     requires spring.context;
+    requires org.hibernate.orm.core;
 
     opens org.motorsportstatscore to javafx.fxml;
     exports org.motorsportstatscore.entity;

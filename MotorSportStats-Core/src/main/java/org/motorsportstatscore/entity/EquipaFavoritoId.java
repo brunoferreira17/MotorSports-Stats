@@ -4,11 +4,13 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import org.hibernate.Hibernate;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
 
 @Embeddable
 public class EquipaFavoritoId implements Serializable {
+    @Serial
     private static final long serialVersionUID = 2675875766221629558L;
     @Column(name = "id_favoritos", nullable = false)
     private Integer idFavoritos;

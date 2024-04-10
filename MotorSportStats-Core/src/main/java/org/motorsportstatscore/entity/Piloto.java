@@ -2,6 +2,7 @@ package org.motorsportstatscore.entity;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -23,11 +24,11 @@ public class Piloto {
     @Column(name = "nacionalidade", length = 50)
     private String nacionalidade;
 
-    @Column(name = "idade")
-    private Integer idade;
-
+    @Column(name = "data_nasc")
+    private LocalDate dataNascimento;
     @ManyToMany
-    @JoinTable(joinColumns = @JoinColumn(name = "id_piloto"),
+    @JoinTable(name = "piloto_favoritos",
+            joinColumns = @JoinColumn(name = "id_piloto"),
             inverseJoinColumns = @JoinColumn(name = "id_favoritos"))
     private Set<Favorito> favoritos = new LinkedHashSet<>();
 
@@ -69,12 +70,14 @@ public class Piloto {
         this.nacionalidade = nacionalidade;
     }
 
-    public Integer getIdade() {
-        return idade;
+    public LocalDate getDataNascimento()
+    {
+        return dataNascimento;
     }
 
-    public void setIdade(Integer idade) {
-        this.idade = idade;
+    public void setDataNascimento(LocalDate dataNascimento)
+    {
+        this.dataNascimento = dataNascimento;
     }
 
     public Set<Favorito> getFavoritos() {
