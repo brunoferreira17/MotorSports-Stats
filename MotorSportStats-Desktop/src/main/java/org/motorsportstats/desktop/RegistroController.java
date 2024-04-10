@@ -23,8 +23,6 @@ public class RegistroController
     @FXML
     private DatePicker datanascimento_usuario;
 
-
-
     @FXML
     private void handleButCancelarRegistro()
     {
