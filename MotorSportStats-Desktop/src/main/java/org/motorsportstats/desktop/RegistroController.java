@@ -5,6 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import org.motorsportstatscore.entity.TipoUtilizador;
 import org.motorsportstatscore.entity.Utilizador;
 import org.motorsportstatscore.repository.UtilizadorRepository;
 
@@ -72,6 +73,7 @@ public class RegistroController
         utilizador.setSenha(getpassword_usuario());
         utilizador.setDataNascimento(getdatanascimento_usuario());
         utilizador.setTelefone(getcontacto_usuario());
+        utilizador.setTipo(TipoUtilizador.utilizador);
 
         UtilizadorRepository.criar(utilizador);
     }

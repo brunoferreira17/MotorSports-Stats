@@ -14,6 +14,10 @@ public class Utilizador {
     @Column(name = "id_utilizador", nullable = false)
     private Integer id;
 
+    @Column(name = "tipo", length = 50)
+    @Enumerated(EnumType.STRING)
+    private TipoUtilizador tipo;
+
     @Column(name = "nome", length = 50)
     private String nome;
 
@@ -43,6 +47,16 @@ public class Utilizador {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public TipoUtilizador getTipo()
+    {
+        return tipo;
+    }
+
+    public void setTipo(TipoUtilizador tipo)
+    {
+        this.tipo = tipo;
     }
 
     public String getNome() {
