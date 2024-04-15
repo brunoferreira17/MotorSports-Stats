@@ -1,8 +1,9 @@
-module org.motorsportstats.motorsportstatsservices {
+module org.motorsportstats.services {
     requires javafx.controls;
     requires javafx.fxml;
+    requires org.motorsportstatscore;
 
 
-    opens org.motorsportstats.motorsportstatsservices to javafx.fxml;
-    exports org.motorsportstats.motorsportstatsservices;
+    opens org.motorsportstats.services to javafx.fxml;
+    exports org.motorsportstats.services;
 }

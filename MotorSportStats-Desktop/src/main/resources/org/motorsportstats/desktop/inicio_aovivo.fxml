@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane stylesheets="@../desktop/css/style.css" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" stylesheets="@../desktop/css/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.motorsportstats.desktop.AoVivoController">
    <children>
       <AnchorPane layoutY="-6.0" prefHeight="101.0" prefWidth="800.0" style="-fx-background-color: #4599de;">
          <children>
@@ -55,16 +55,7 @@
             <Button layoutX="210.0" layoutY="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="MOTO GP" />
          </children>
       </HBox>
-      <Label layoutX="126.0" layoutY="204.0" prefHeight="26.0" prefWidth="430.0" text="  ....." />
-      <Label layoutX="126.0" layoutY="230.0" prefHeight="26.0" prefWidth="675.0" text="  ....." />
-      <TableView layoutX="126.0" layoutY="256.0" prefHeight="446.0" prefWidth="675.0">
-        <columns>
-          <TableColumn prefWidth="30.0" text="#" />
-            <TableColumn prefWidth="75.0" text="VOLTAS" />
-            <TableColumn prefWidth="75.0" text="GRELHA" />
-            <TableColumn prefWidth="75.0" text="STAGES" />
-        </columns>
-      </TableView>
+      <TableView fx:id="TabelaAoVivo" layoutX="126.0" layoutY="202.0" prefHeight="503.0" prefWidth="675.0" />
       <VBox layoutY="149.0" prefHeight="553.0" prefWidth="126.0" spacing="100.0" AnchorPane.topAnchor="152.0">
          <children>
             <Label prefHeight="25.0" prefWidth="800.0" text="COMPETIÇÕES FIXAS">
