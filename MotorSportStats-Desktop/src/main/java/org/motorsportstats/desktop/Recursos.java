@@ -12,7 +12,6 @@ public class Recursos
 {
     public static class SceneSwitcher
     {
-
         public static void switchScene(String fxmlFile, Node node)
         {
             try

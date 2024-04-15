@@ -1,6 +1,7 @@
 package org.motorsportstatscore.repository;
 
 
+import jakarta.persistence.NoResultException;
 import org.motorsportstatscore.entity.Utilizador;
 import jakarta.persistence.EntityManager;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -49,5 +50,26 @@ public interface UtilizadorRepository extends JpaRepository<Utilizador, Long>, J
         return DbConnection.getEntityManager().createQuery("from Utilizador ", Utilizador.class).setParameter(1,TypeUtilizador).getResultList();
     }*/
 
+    public static boolean VerificarAutenticacao(String email, String senha) {
+        Utilizador utilizador = null;
+
+        try {
+            utilizador = DbConnection.getEntityManager()
+                    .createQuery("SELECT u FROM Utilizador u WHERE u.email = :email", Utilizador.class)
+                    .setParameter("email", email)
+                    .getSingleResult();
+        } catch (NoResultException e) {
+            // Usuário não encontrado
+            return false;
+        }
+
+        if (utilizador != null && utilizador.getSenha().equals(senha)) {
+            // Senha corresponde
+            return true;
+        } else {
+            // Senha não corresponde
+            return false;
+        }
+    }
 
 }

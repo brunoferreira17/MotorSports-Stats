@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import org.motorsportstatscore.repository.UtilizadorRepository;
 
 public class LoginController
 {
@@ -19,7 +20,12 @@ public class LoginController
     @FXML
     private void handleButConfirmarLogin()
     {
+        boolean validacaoLogin = UtilizadorRepository.VerificarAutenticacao(getemail_usuario(),getpassword_usuario());
 
+        if(validacaoLogin)
+        {
+            Recursos.SceneSwitcher.switchScene("inicio.fxml",ButConfirmarLogin);
+        }
     }
 
     @FXML
@@ -37,4 +43,5 @@ public class LoginController
     {
         return password_usuario.getText();
     }
+
 }
