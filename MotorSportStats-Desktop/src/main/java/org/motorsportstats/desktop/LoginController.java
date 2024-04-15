@@ -27,7 +27,6 @@ public class LoginController
     {
        Recursos.SceneSwitcher.switchScene("paginainicial.fxml",ButCancelarLogin);
     }
-
     @FXML
     public String getemail_usuario()
     {
