@@ -11,6 +11,8 @@ public class PaginaInicialController
     private Button ButRegistrar;
     @FXML
     private Button ButLogin;
+    @FXML
+    private Label avisolabel;
 
     @FXML
     private void handleButRegistrar()

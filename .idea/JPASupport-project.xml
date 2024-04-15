@@ -17,7 +17,7 @@
               <option name="dtoParentDirectory" value="$PROJECT_DIR$/src/main/java" />
               <option name="entityPackageName" value="entity" />
               <option name="entityParentDirectory" value="$PROJECT_DIR$/src/main/java" />
-              <option name="generateEntity" value="false" />
+              <option name="generateRepository" value="false" />
               <option name="mapperXmlParentDirectory" value="C:\Users\Diogo Pereira\Documents\Uni\Curso - 2º ano\2º Semestre\Projeto II\Projeto\src\main\resources" />
               <option name="repositoryPackageName" value="repository" />
               <option name="repositoryParentDirectory" value="$PROJECT_DIR$/src/main/java" />
@@ -36,7 +36,7 @@
   <component name="DatabaseSettingsState">
     <option name="database" value="Projeto" />
     <option name="driverClass" value="org.postgresql.Driver" />
-    <option name="driverPath" value="C:\Users\Diogo Pereira\Downloads\postgresql-42.7.2.jar" />
+    <option name="driverPath" value="C:\Users\user\Downloads\postgresql-42.7.2.jar" />
     <option name="port" value="5432" />
     <option name="schema" value="public" />
     <option name="url" value="jdbc:postgresql://localhost:5432/Projeto" />

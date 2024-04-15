@@ -14,7 +14,6 @@ public class Utilizador {
     @Column(name = "id_utilizador", nullable = false)
     private Integer id;
 
-    @Column(name = "tipo", length = 50)
     @Enumerated(EnumType.STRING)
     private TipoUtilizador tipo;
 

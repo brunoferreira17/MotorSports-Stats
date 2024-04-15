@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane layoutY="-6.0" prefHeight="101.0" prefWidth="800.0" style="-fx-background-color: #4599de;">
+         <children>
+            <ImageView fitHeight="79.0" fitWidth="83.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/capacete.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="99.0" layoutY="20.0" prefHeight="61.0" prefWidth="214.0" text="MotorSport-Stats" textAlignment="CENTER">
+               <font>
+                  <Font name="Harlow Solid Italic" size="28.0" />
+               </font>
+            </Label>
+            <Button layoutX="687.0" layoutY="31.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="38.0" />
+            <Button layoutX="737.0" layoutY="31.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="38.0" />
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="691.0" layoutY="35.0">
+               <image>
+                  <Image url="@images/lupa-arredondada.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="742.0" layoutY="36.0">
+               <image>
+                  <Image url="@images/profile.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <HBox layoutX="126.0" layoutY="159.0" prefHeight="35.0" prefWidth="430.0" spacing="10.0" AnchorPane.leftAnchor="126.0" AnchorPane.topAnchor="159.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="TODOS" />
+            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="AO VIVO" />
+            <Button layoutX="110.0" layoutY="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="TERMINADO" />
+            <Button layoutX="210.0" layoutY="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="AGENDADO" />
+         </children>
+      </HBox>
+      <DatePicker layoutX="610.0" layoutY="164.0" prefHeight="26.0" prefWidth="150.0" AnchorPane.topAnchor="164.0" />
+      <HBox layoutY="102.0" prefHeight="50.0" prefWidth="800.0" spacing="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="102.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="125.0" text="FAVORITOS">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Button>
+            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="FORMULA 1" />
+            <Button layoutX="110.0" layoutY="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="WRC" />
+            <Button layoutX="210.0" layoutY="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="MOTO GP" />
+         </children>
+      </HBox>
+      <Label layoutX="126.0" layoutY="204.0" prefHeight="26.0" prefWidth="430.0" text="  ....." />
+      <Label layoutX="126.0" layoutY="230.0" prefHeight="26.0" prefWidth="675.0" text="  ....." />
+      <TableView layoutX="126.0" layoutY="256.0" prefHeight="446.0" prefWidth="675.0">
+        <columns>
+          <TableColumn prefWidth="30.0" text="#" />
+          <TableColumn prefWidth="150.0" text="CONDUTOR" />
+            <TableColumn prefWidth="175.0" text="EQUIPA" />
+            <TableColumn prefWidth="100.0" text="TEMPO" />
+            <TableColumn prefWidth="75.0" text="VOLTAS" />
+            <TableColumn prefWidth="75.0" text="GRELHA" />
+            <TableColumn prefWidth="75.0" text="STAGES" />
+        </columns>
+      </TableView>
+      <VBox layoutY="149.0" prefHeight="553.0" prefWidth="126.0" spacing="100.0" AnchorPane.topAnchor="152.0">
+         <children>
+            <Label prefHeight="25.0" prefWidth="800.0" text="COMPETIÇÕES FIXAS">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin></Label>
+            <Label layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="800.0" text="EQUIPAS FAVORITAS" />
+            <Label layoutX="10.0" layoutY="36.0" prefHeight="25.0" prefWidth="800.0" text="PILOTOS FAVORITOS" />
+            <Label layoutX="10.0" layoutY="63.0" prefHeight="25.0" prefWidth="800.0" text="CALENDÁRIO" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

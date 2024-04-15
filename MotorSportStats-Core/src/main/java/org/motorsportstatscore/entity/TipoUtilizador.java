@@ -1,8 +1,7 @@
 package org.motorsportstatscore.entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
-@Entity
 @Table(name = "tipo_utilizador")
 public enum TipoUtilizador {
     admin,

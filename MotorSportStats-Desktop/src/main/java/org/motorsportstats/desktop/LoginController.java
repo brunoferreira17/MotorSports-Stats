@@ -2,6 +2,7 @@ package org.motorsportstats.desktop;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import org.motorsportstatscore.repository.UtilizadorRepository;
@@ -24,7 +25,7 @@ public class LoginController
 
         if(validacaoLogin)
         {
-            Recursos.SceneSwitcher.switchScene("inicio.fxml",ButConfirmarLogin);
+            Recursos.SceneSwitcher.switchScene("inicio_aovivo.fxml",ButConfirmarLogin);
         }
     }
 
