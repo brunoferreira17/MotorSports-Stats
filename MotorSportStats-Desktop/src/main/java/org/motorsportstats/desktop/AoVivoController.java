@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.Label;
 import javafx.scene.control.TitledPane;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
@@ -14,6 +16,7 @@ import org.motorsportstatscore.entity.Corrida;
 import org.motorsportstatscore.entity.TipoCompeticao;
 
 import java.util.List;
+import java.util.Objects;
 
 public class AoVivoController
 {
@@ -49,6 +52,24 @@ public class AoVivoController
                     {
                         HBox competicaoHBox = new HBox();
 
+                        ImageView imageView = new ImageView();
+                        imageView.setFitWidth(20);
+                        imageView.setFitHeight(20);
+                        Image selectedImage = new Image((getClass().getResourceAsStream("/images/star.png")));
+                        Image deselectedImage = new Image((getClass().getResourceAsStream("/images/star2.png")));
+                        imageView.setImage(deselectedImage);
+
+                        imageView.setOnMouseClicked(event -> {
+                            event.consume();
+                            if (imageView.getImage() == deselectedImage) {
+                                imageView.setImage(selectedImage);
+                            } else {
+                                imageView.setImage(deselectedImage);
+                            }
+                        });
+
+                        competicaoHBox.getChildren().add(imageView);
+
                         Label competicaoLabel = new Label(competicao.getNome());
                         competicaoHBox.getChildren().add(competicaoLabel);
 
@@ -56,9 +77,12 @@ public class AoVivoController
                         HBox.setHgrow(filler, Priority.ALWAYS);
                         competicaoHBox.getChildren().add(filler);
 
-                        // Adiciona a data da competição
-                        Label dataLabel = new Label(competicao.getDataInicio().toString()); // Supondo que getData() retorne um LocalDate
+                        Label dataLabel = new Label(competicao.getDataInicio().toString());
                         competicaoHBox.getChildren().add(dataLabel);
+
+                        competicaoHBox.setOnMouseClicked(event ->
+                                Recursos.SceneSwitcher.switchScene("desporto.fxml",competicaoHBox));
+                        tipoCompeticaoAccordion.getPanes().add(tipoCompeticaoPane);
 
                         competicaoBox.getChildren().add(competicaoHBox);
                     }
@@ -67,7 +91,7 @@ public class AoVivoController
                 if (!competicaoBox.getChildren().isEmpty())
                 {
                     tipoCompeticaoPane.setContent(competicaoBox);
-                    tipoCompeticaoAccordion.getPanes().add(tipoCompeticaoPane);
+
                 }
             }
 

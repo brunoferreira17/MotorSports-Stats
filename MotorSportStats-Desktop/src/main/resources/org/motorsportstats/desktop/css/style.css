@@ -12,3 +12,10 @@
 {
     -fx-text-fill: white;
 }
+
+.star-checkbox {
+    -fx-padding: 0;
+    -fx-background-color: transparent;
+    -fx-graphic: url("star.png");
+    -fx-selected-color: yellow;
+}
