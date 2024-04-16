@@ -10,7 +10,8 @@ import java.io.IOException;
 
 public class Start extends Application {
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) throws IOException
+    {
         FXMLLoader fxmlLoader = new FXMLLoader(Start.class.getResource("paginainicial.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("MotorSport-Stats");
