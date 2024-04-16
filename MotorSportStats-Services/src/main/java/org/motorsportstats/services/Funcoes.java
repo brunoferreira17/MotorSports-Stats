@@ -1,6 +1,6 @@
 package org.motorsportstats.services;
 
-import javafx.scene.chart.PieChart;
+
 import org.motorsportstatscore.entity.Corrida;
 import org.motorsportstatscore.entity.TipoCompeticao;
 import org.motorsportstatscore.entity.Competicao;
@@ -25,6 +25,30 @@ public class Funcoes
         if(!CorridaDoDia.isEmpty())
         {
             return  CorridaDoDia;
+        }else
+        {
+            return new ArrayList<>();
+        }
+    }
+
+    public static List<Competicao> GetCompeticoesDoDia()
+    {
+        LocalDate DataHoje = LocalDate.now();
+
+        String jpql = "SELECT DISTINCT c " +
+                "FROM Competicao c " +
+                "JOIN c.corridas co " +
+                "WHERE co.data = :data";
+
+        List<Competicao> CompeticoesDoDia = DbConnection.getEntityManager()
+                .createQuery(jpql, Competicao.class)
+                .setParameter("data", DataHoje)
+                .getResultList();
+
+        /*WHERE u.data = :data*/
+        if(!CompeticoesDoDia.isEmpty())
+        {
+            return  CompeticoesDoDia;
         }else
         {
             return new ArrayList<>();
