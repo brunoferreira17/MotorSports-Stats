@@ -4,6 +4,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.Label;
 import javafx.scene.control.TitledPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import org.motorsportstats.services.Funcoes;
 import org.motorsportstatscore.entity.Competicao;
@@ -44,8 +47,20 @@ public class AoVivoController
                 {
                     if (competicao.getIdTipoCompeticao() == tipoCompeticao)
                     {
+                        HBox competicaoHBox = new HBox();
+
                         Label competicaoLabel = new Label(competicao.getNome());
-                        competicaoBox.getChildren().add(competicaoLabel);
+                        competicaoHBox.getChildren().add(competicaoLabel);
+
+                        Pane filler = new Pane();
+                        HBox.setHgrow(filler, Priority.ALWAYS);
+                        competicaoHBox.getChildren().add(filler);
+
+                        // Adiciona a data da competição
+                        Label dataLabel = new Label(competicao.getDataInicio().toString()); // Supondo que getData() retorne um LocalDate
+                        competicaoHBox.getChildren().add(dataLabel);
+
+                        competicaoBox.getChildren().add(competicaoHBox);
                     }
                 }
 
