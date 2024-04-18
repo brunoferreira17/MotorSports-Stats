@@ -4,11 +4,11 @@ package org.motorsportstats.services;
 import org.motorsportstatscore.entity.*;
 import org.motorsportstatscore.repository.DbConnection;
 import org.motorsportstatscore.repository.FavoritoRepository;
-import org.motorsportstatscore.repository.UtilizadorRepository;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Funcoes
 {
@@ -114,5 +114,25 @@ public class Funcoes
                 FavoritoRepository.apagar(favorito);
             }
         }
+    }
+
+    public static List<Competicao> GetCompeticoesFavoritasDoUtilizador(Utilizador utilizador) {
+        return utilizador.getFavoritos().stream()
+                .flatMap(favorito -> favorito.getCompeticaos().stream())
+                .distinct()
+                .collect(Collectors.toList());
+    }
+
+    public static List<Equipa> GetEquipasFavoritasDoUtilizador(Utilizador utilizador) {
+        return utilizador.getFavoritos().stream()
+                .flatMap(favorito -> favorito.getEquipas().stream())
+                .distinct()
+                .collect(Collectors.toList());
+    }
+    public static List<Piloto> GetPilotosFavoritosDoUtilizador(Utilizador utilizador) {
+        return utilizador.getFavoritos().stream()
+                .flatMap(favorito -> favorito.getPilotos().stream())
+                .distinct()
+                .collect(Collectors.toList());
     }
 }

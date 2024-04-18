@@ -3,6 +3,7 @@ package org.motorsportstats.desktop;
 import javafx.fxml.FXML;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TitledPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -12,7 +13,6 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import org.motorsportstats.services.Funcoes;
 import org.motorsportstatscore.entity.*;
-import org.motorsportstatscore.repository.UtilizadorRepository;
 
 import java.util.List;
 import java.util.Objects;
@@ -22,12 +22,24 @@ public class AoVivoController
 
     @FXML
     private VBox TabelaAoVivo;
+    @FXML
+    private ListView<String> ListaCompFav;
+    @FXML
+    private ListView<String> ListaEquipFav;
+    @FXML
+    private ListView<String> ListaPilotoFav;
+
+
 
     public void initialize()
     {
         Utilizador utilizadorLogado = AuthService.getUtilizadorLogado();
 
         List<Corrida> corridas = Funcoes.GetCorridasDoDia();
+        List<Competicao> competicoesFavoritas = Funcoes.GetCompeticoesFavoritasDoUtilizador(utilizadorLogado);
+        List<Equipa> EquipasFavoritos = Funcoes.GetEquipasFavoritasDoUtilizador(utilizadorLogado);
+        List<Piloto> PilotosFavoritos = Funcoes.GetPilotosFavoritosDoUtilizador(utilizadorLogado);
+
 
         if(corridas.isEmpty())
         {
@@ -56,8 +68,8 @@ public class AoVivoController
                         ImageView imageView = new ImageView();
                         imageView.setFitWidth(20);
                         imageView.setFitHeight(20);
-                        Image selectedImage = new Image((getClass().getResourceAsStream("/images/star.png")));
-                        Image deselectedImage = new Image((getClass().getResourceAsStream("/images/star2.png")));
+                        Image selectedImage = new Image((Objects.requireNonNull(getClass().getResourceAsStream("/images/star.png"))));
+                        Image deselectedImage = new Image((Objects.requireNonNull(getClass().getResourceAsStream("/images/star2.png"))));
 
                         if(utilizadorLogado.getFavoritos().stream().anyMatch(favorito -> favorito.getCompeticaos().contains(competicao))) {
                             imageView.setImage(selectedImage);
@@ -109,5 +121,21 @@ public class AoVivoController
                 TabelaAoVivo.getChildren().add(tipoCompeticaoAccordion);
             }
         }
+
+        for(Competicao competicao: competicoesFavoritas)
+        {
+            ListaCompFav.getItems().add(competicao.getNome());
+        }
+
+        for(Equipa equipa : EquipasFavoritos)
+        {
+            ListaEquipFav.getItems().add(equipa.getNome());
+        }
+
+        for(Piloto piloto : PilotosFavoritos)
+        {
+            ListaPilotoFav.getItems().add(piloto.getNome());
+        }
+
     }
 }
