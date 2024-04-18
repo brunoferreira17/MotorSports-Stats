@@ -72,6 +72,7 @@ public class AoVivoController
                                 Funcoes.AdicionarCompeticaoFavorito(competicao,utilizadorLogado);
                                 imageView.setImage(selectedImage);
                             } else {
+                                Funcoes.RemoverCompeticaoFavorito(competicao,utilizadorLogado);
                                 imageView.setImage(deselectedImage);
                             }
                         });

@@ -3,6 +3,7 @@ package org.motorsportstats.services;
 
 import org.motorsportstatscore.entity.*;
 import org.motorsportstatscore.repository.DbConnection;
+import org.motorsportstatscore.repository.FavoritoRepository;
 import org.motorsportstatscore.repository.UtilizadorRepository;
 
 import java.time.LocalDate;
@@ -82,30 +83,12 @@ public class Funcoes
 
     public static void AdicionarCompeticaoFavorito(Competicao competicaofavorita, Utilizador utilizador)
     {
-        /*String jpql = "SELECT DISTINCT c " +
-                "FROM Competicao c ";
+        boolean competicaoJafavorita = utilizador.getFavoritos().stream()
+                .anyMatch(favorito -> favorito.getCompeticaos().contains(competicaofavorita));
 
-        List<Competicao> CompeticoesDoDia = DbConnection.getEntityManager()
-                .createQuery(jpql, Competicao.class)
-                .getResultList();
-
-        CompeticaoFavorito teste = new CompeticaoFavorito();
-
-        for(Competicao competicao : CompeticoesDoDia)
+        if(competicaoJafavorita)
         {
-            if(competicao == competicaofavorita)
-            {
-                teste.setIdCompeticao(competicao);
-                teste.setIdFavoritos();
-            }
-        }*/
-
-        boolean competicaoJaFavorita = utilizador.getFavoritos().stream().anyMatch(favorito -> favorito.getCompeticaos().contains(competicaofavorita));
-
-        if (competicaoJaFavorita)
-        {
-            return;
-
+         return;
         }
 
         Favorito favorito = new Favorito();
@@ -114,7 +97,22 @@ public class Funcoes
 
         utilizador.getFavoritos().add(favorito);
 
-        UtilizadorRepository.atualizar(utilizador);
+        FavoritoRepository.criar(favorito);
 
+    }
+    public static void RemoverCompeticaoFavorito(Competicao competicaoFavorita, Utilizador utilizador)
+    {
+        Favorito favorito = utilizador.getFavoritos().stream()
+                .filter(f -> f.getCompeticaos().contains(competicaoFavorita))
+                .findFirst()
+                .orElse(null);
+
+        if (favorito != null) {
+            favorito.getCompeticaos().remove(competicaoFavorita);
+            if (favorito.getCompeticaos().isEmpty()) {
+                utilizador.getFavoritos().remove(favorito);
+                FavoritoRepository.apagar(favorito);
+            }
+        }
     }
 }
