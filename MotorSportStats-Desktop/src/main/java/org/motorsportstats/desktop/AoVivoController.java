@@ -11,9 +11,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import org.motorsportstats.services.Funcoes;
-import org.motorsportstatscore.entity.Competicao;
-import org.motorsportstatscore.entity.Corrida;
-import org.motorsportstatscore.entity.TipoCompeticao;
+import org.motorsportstatscore.entity.*;
+import org.motorsportstatscore.repository.UtilizadorRepository;
 
 import java.util.List;
 import java.util.Objects;
@@ -26,6 +25,8 @@ public class AoVivoController
 
     public void initialize()
     {
+        Utilizador utilizadorLogado = AuthService.getUtilizadorLogado();
+
         List<Corrida> corridas = Funcoes.GetCorridasDoDia();
 
         if(corridas.isEmpty())
@@ -57,11 +58,18 @@ public class AoVivoController
                         imageView.setFitHeight(20);
                         Image selectedImage = new Image((getClass().getResourceAsStream("/images/star.png")));
                         Image deselectedImage = new Image((getClass().getResourceAsStream("/images/star2.png")));
-                        imageView.setImage(deselectedImage);
+
+                        if(utilizadorLogado.getFavoritos().stream().anyMatch(favorito -> favorito.getCompeticaos().contains(competicao))) {
+                            imageView.setImage(selectedImage);
+                        }else {
+                            imageView.setImage(deselectedImage);
+                        }
 
                         imageView.setOnMouseClicked(event -> {
                             event.consume();
-                            if (imageView.getImage() == deselectedImage) {
+                            if (imageView.getImage() == deselectedImage)
+                            {
+                                Funcoes.AdicionarCompeticaoFavorito(competicao,utilizadorLogado);
                                 imageView.setImage(selectedImage);
                             } else {
                                 imageView.setImage(deselectedImage);

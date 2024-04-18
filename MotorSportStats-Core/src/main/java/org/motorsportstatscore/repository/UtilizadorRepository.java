@@ -50,8 +50,9 @@ public interface UtilizadorRepository extends JpaRepository<Utilizador, Long>, J
         return DbConnection.getEntityManager().createQuery("from Utilizador ", Utilizador.class).setParameter(1,TypeUtilizador).getResultList();
     }*/
 
-    public static boolean VerificarAutenticacao(String email, String senha) {
-        Utilizador utilizador = null;
+    public static Utilizador VerificarAutenticacao(String email, String senha)
+    {
+        Utilizador utilizador = new Utilizador();
 
         try {
             utilizador = DbConnection.getEntityManager()
@@ -60,15 +61,15 @@ public interface UtilizadorRepository extends JpaRepository<Utilizador, Long>, J
                     .getSingleResult();
         } catch (NoResultException e) {
             // Usuário não encontrado
-            return false;
+            return null;
         }
 
         if (utilizador != null && utilizador.getSenha().equals(senha)) {
             // Senha corresponde
-            return true;
+            return utilizador;
         } else {
             // Senha não corresponde
-            return false;
+            return null;
         }
     }
 

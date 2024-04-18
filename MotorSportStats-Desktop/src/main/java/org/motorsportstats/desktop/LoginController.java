@@ -2,10 +2,12 @@ package org.motorsportstats.desktop;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import org.motorsportstatscore.entity.AuthService;
+import org.motorsportstatscore.entity.Utilizador;
 import org.motorsportstatscore.repository.UtilizadorRepository;
+
 
 public class LoginController
 {
@@ -21,10 +23,11 @@ public class LoginController
     @FXML
     private void handleButConfirmarLogin()
     {
-        boolean validacaoLogin = UtilizadorRepository.VerificarAutenticacao(getemail_usuario(),getpassword_usuario());
+        Utilizador utilizadorLogado = UtilizadorRepository.VerificarAutenticacao(getemail_usuario(),getpassword_usuario());
 
-        if(validacaoLogin)
+        if(utilizadorLogado != null)
         {
+            AuthService.setUtilizadorLogado(utilizadorLogado);
             Recursos.SceneSwitcher.switchScene("inicio_aovivo.fxml",ButConfirmarLogin);
         }
     }

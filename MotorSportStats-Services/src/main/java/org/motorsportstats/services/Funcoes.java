@@ -1,10 +1,9 @@
 package org.motorsportstats.services;
 
 
-import org.motorsportstatscore.entity.Corrida;
-import org.motorsportstatscore.entity.TipoCompeticao;
-import org.motorsportstatscore.entity.Competicao;
+import org.motorsportstatscore.entity.*;
 import org.motorsportstatscore.repository.DbConnection;
+import org.motorsportstatscore.repository.UtilizadorRepository;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -79,5 +78,43 @@ public class Funcoes
         {
             return new ArrayList<>();
         }
+    }
+
+    public static void AdicionarCompeticaoFavorito(Competicao competicaofavorita, Utilizador utilizador)
+    {
+        /*String jpql = "SELECT DISTINCT c " +
+                "FROM Competicao c ";
+
+        List<Competicao> CompeticoesDoDia = DbConnection.getEntityManager()
+                .createQuery(jpql, Competicao.class)
+                .getResultList();
+
+        CompeticaoFavorito teste = new CompeticaoFavorito();
+
+        for(Competicao competicao : CompeticoesDoDia)
+        {
+            if(competicao == competicaofavorita)
+            {
+                teste.setIdCompeticao(competicao);
+                teste.setIdFavoritos();
+            }
+        }*/
+
+        boolean competicaoJaFavorita = utilizador.getFavoritos().stream().anyMatch(favorito -> favorito.getCompeticaos().contains(competicaofavorita));
+
+        if (competicaoJaFavorita)
+        {
+            return;
+
+        }
+
+        Favorito favorito = new Favorito();
+        favorito.setIdUtilizador(utilizador);
+        favorito.getCompeticaos().add(competicaofavorita);
+
+        utilizador.getFavoritos().add(favorito);
+
+        UtilizadorRepository.atualizar(utilizador);
+
     }
 }
