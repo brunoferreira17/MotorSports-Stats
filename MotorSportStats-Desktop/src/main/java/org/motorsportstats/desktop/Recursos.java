@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.Objects;
 
 public class Recursos
 {
@@ -27,7 +28,7 @@ public class Recursos
                 Stage stage = (Stage) node.getScene().getWindow();
 
                 //Inserir Icon
-                Image icon = new Image(SceneSwitcher.class.getResourceAsStream("capacete.png"));
+                Image icon = new Image(Objects.requireNonNull(SceneSwitcher.class.getResourceAsStream("capacete.png")));
                 stage.getIcons().add(icon);
 
                 // Definir a cena na janela principal
@@ -41,4 +42,25 @@ public class Recursos
         }
     }
 
+    public static class WindowManager
+    {
+        public static void openWindowToEdit(String fxmlFile, String Text)
+        {
+            try {
+                // Carregar o arquivo FXML
+                FXMLLoader loader = new FXMLLoader(WindowManager.class.getResource(fxmlFile));
+                Parent root = loader.load();
+
+                MiniPaginaEdicaoController Controller = loader.getController();
+                Controller.SetLabel(Text);
+
+                // Criar uma nova janela
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }

@@ -13,14 +13,6 @@ public class EditarPerfilController
     @FXML
     private Button BotaoCancelarEdicao;
     @FXML
-    private Label BotaoEditarNome;
-    @FXML
-    private Label BotaoEditarEmail;
-    @FXML
-    private Label BotaoEditarSenha;
-    @FXML
-    private Label BotaoEditarTelefone;
-    @FXML
     private Label LabelNomeUtilizador;
     @FXML
     private Label LabelEmailUtilizador;
@@ -40,6 +32,35 @@ public class EditarPerfilController
 
     }
 
+    @FXML
+    private void LabelEditarNome()
+    {
+        String novoNome = abrirMiniPaginaEdicao("MiniPaginaEdicao.fxml", "Novo Nome");
+
+    }
+
+    @FXML
+    private void LabelEditarEmail()
+    {
+        String novoEmail = abrirMiniPaginaEdicao("MiniPaginaEdicao.fxml", "Novo Email");
+    }
+
+    @FXML
+    private void LabelEditarSenha()
+    {
+        String novoSenha = abrirMiniPaginaEdicao("MiniPaginaEdicao.fxml", "Novo Senha");
+    }
+
+    @FXML
+    private void LabelEditarTelefone()
+    {
+        String novoTelefone = abrirMiniPaginaEdicao("MiniPaginaEdicao.fxml", "Novo Telefone");
+    }
+
+    private String abrirMiniPaginaEdicao(String fxmlFile, String labelText) {
+        MiniPaginaEdicaoController controller = Recursos.WindowManager.openWindowToEdit(fxmlFile, labelText);
+        return (controller != null) ? controller.getNovoOpcao(): null;
+    }
 
     public void initialize()
     {

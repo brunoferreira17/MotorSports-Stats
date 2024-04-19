@@ -48,5 +48,4 @@ public class LoginController
     {
         return password_usuario.getText();
     }
-
 }
