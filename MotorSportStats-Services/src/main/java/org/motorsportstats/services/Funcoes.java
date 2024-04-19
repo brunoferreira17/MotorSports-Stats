@@ -12,9 +12,8 @@ import java.util.stream.Collectors;
 
 public class Funcoes
 {
-    public static List<Corrida> GetCorridasDoDia()
+    public static List<Corrida> GetCorridasDoDia(LocalDate DataHoje)
     {
-        LocalDate DataHoje = LocalDate.now();
 
         List<Corrida> CorridaDoDia = DbConnection.getEntityManager()
                 .createQuery("SELECT u FROM Corrida u WHERE u.data = :data", Corrida.class)
@@ -31,9 +30,8 @@ public class Funcoes
         }
     }
 
-    public static List<Competicao> GetCompeticoesDoDia()
+    public static List<Competicao> GetCompeticoesDoDia(LocalDate DataHoje)
     {
-        LocalDate DataHoje = LocalDate.now();
 
         String jpql = "SELECT DISTINCT c " +
                 "FROM Competicao c " +
@@ -55,9 +53,8 @@ public class Funcoes
         }
     }
 
-    public static List<TipoCompeticao> GetTipoDeCompeticoesDoDia()
+    public static List<TipoCompeticao> GetTipoDeCompeticoesDoDia(LocalDate DataHoje)
     {
-        LocalDate DataHoje = LocalDate.now();
 
         String jpql = "SELECT DISTINCT tc " +
                 "FROM TipoCompeticao tc " +
@@ -115,6 +112,13 @@ public class Funcoes
             }
         }
     }
+
+    /*public static List<TipoCompeticao> GetTipoCompeticoesFavoritasDoUtilizador(Utilizador utilizador) {
+        return utilizador.getFavoritos().stream()
+                .flatMap(favorito -> favorito.get().stream())
+                .distinct()
+                .collect(Collectors.toList());
+    }*/
 
     public static List<Competicao> GetCompeticoesFavoritasDoUtilizador(Utilizador utilizador) {
         return utilizador.getFavoritos().stream()

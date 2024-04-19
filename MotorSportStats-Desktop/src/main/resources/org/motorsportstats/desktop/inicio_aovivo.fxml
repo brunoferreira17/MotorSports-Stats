@@ -42,7 +42,7 @@
             <Button layoutX="210.0" layoutY="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="AGENDADO" />
          </children>
       </HBox>
-      <DatePicker layoutX="610.0" layoutY="164.0" prefHeight="26.0" prefWidth="150.0" AnchorPane.topAnchor="164.0" />
+      <DatePicker fx:id="DataEscolhida" layoutX="610.0" layoutY="164.0" prefHeight="26.0" prefWidth="150.0" AnchorPane.topAnchor="164.0" />
       <HBox layoutY="102.0" prefHeight="50.0" prefWidth="800.0" spacing="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="102.0">
          <children>
             <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="125.0" text="FAVORITOS">

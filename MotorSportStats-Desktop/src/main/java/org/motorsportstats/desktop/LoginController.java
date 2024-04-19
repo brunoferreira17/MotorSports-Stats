@@ -30,6 +30,7 @@ public class LoginController
             AuthService.setUtilizadorLogado(utilizadorLogado);
             Recursos.SceneSwitcher.switchScene("inicio_aovivo.fxml",ButConfirmarLogin);
         }
+
     }
 
     @FXML
