@@ -34,7 +34,14 @@ public class EditarPerfilController
         Recursos.SceneSwitcher.switchScene("inicio_aovivo.fxml",BotaoCancelarEdicao);
     }
 
-    private void initialize()
+    @FXML
+    private void handleButConfirmarEdicao()
+    {
+
+    }
+
+
+    public void initialize()
     {
         Utilizador utilizadorLogado = AuthService.getUtilizadorLogado();
 
@@ -42,6 +49,5 @@ public class EditarPerfilController
         LabelEmailUtilizador.setText(utilizadorLogado.getEmail());
         LabelSenhaUtilizador.setText(utilizadorLogado.getSenha());
         LabelTelefoneUtilizador.setText(utilizadorLogado.getTelefone());
-
     }
 }

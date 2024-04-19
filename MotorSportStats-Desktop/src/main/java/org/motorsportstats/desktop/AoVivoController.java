@@ -15,6 +15,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
+
 public class AoVivoController
 {
 
@@ -28,6 +29,21 @@ public class AoVivoController
     private ListView<String> ListaPilotoFav;
     @FXML
     private DatePicker DataEscolhida;
+    @FXML
+    private Button BotaoTodos;
+    @FXML
+    private Button BotaoEditarPerfil;
+    @FXML
+    private void handleButbotaoTodos()
+    {
+        Recursos.SceneSwitcher.switchScene("desporto.fxml", BotaoTodos);
+    }
+    @FXML
+    private void handleButEditarPerfil()
+    {
+        Recursos.SceneSwitcher.switchScene("editarperfil.fxml",BotaoEditarPerfil);
+    }
+
 
     public void initialize() {
         configurarDatePicker();
