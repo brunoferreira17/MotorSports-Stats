@@ -5,6 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import org.motorsportstatscore.entity.AuthService;
 import org.motorsportstatscore.entity.Utilizador;
+import org.motorsportstatscore.repository.UtilizadorRepository;
 
 public class EditarPerfilController
 {
@@ -20,6 +21,12 @@ public class EditarPerfilController
     private Label LabelSenhaUtilizador;
     @FXML
     private Label LabelTelefoneUtilizador;
+
+    private Utilizador utilizadorLogado;
+    private String novoNome;
+    private String novoEmail;
+    private String novaSenha;
+    private String novoTelefone;
     @FXML
     private void handleButCancelarEdicao()
     {
@@ -29,46 +36,86 @@ public class EditarPerfilController
     @FXML
     private void handleButConfirmarEdicao()
     {
+        if(utilizadorLogado != null)
+        {
+            utilizadorLogado.setNome(novoNome);
+            utilizadorLogado.setEmail(novoEmail);
+            utilizadorLogado.setSenha(novaSenha);
+            utilizadorLogado.setTelefone(novoTelefone);
 
+            UtilizadorRepository.atualizar(utilizadorLogado);
+        }
+        Recursos.SceneSwitcher.switchScene("inicio_aovivo.fxml",BotaoConfirmarEdicao);
     }
 
     @FXML
     private void LabelEditarNome()
     {
-        String novoNome = abrirMiniPaginaEdicao("MiniPaginaEdicao.fxml", "Novo Nome");
-
+       novoNome = Recursos.WindowManager.openWindowToEdit("MiniPaginaEdicao.fxml", "Novo Nome");
+       if(novoNome != null)
+       {
+           setNovoNome(novoNome);
+       }
     }
 
     @FXML
     private void LabelEditarEmail()
     {
-        String novoEmail = abrirMiniPaginaEdicao("MiniPaginaEdicao.fxml", "Novo Email");
+        novoEmail = Recursos.WindowManager.openWindowToEdit("MiniPaginaEdicao.fxml", "Novo Email");
+        if(novoEmail != null)
+        {
+            setNovoEmail(novoEmail);
+        }
     }
 
     @FXML
     private void LabelEditarSenha()
     {
-        String novoSenha = abrirMiniPaginaEdicao("MiniPaginaEdicao.fxml", "Novo Senha");
+        novaSenha = Recursos.WindowManager.openWindowToEdit("MiniPaginaEdicao.fxml", "Novo Senha");
+        if(novaSenha != null)
+        {
+            setNovaSenha(novaSenha);
+        }
     }
 
     @FXML
     private void LabelEditarTelefone()
     {
-        String novoTelefone = abrirMiniPaginaEdicao("MiniPaginaEdicao.fxml", "Novo Telefone");
+        novoTelefone = Recursos.WindowManager.openWindowToEdit("MiniPaginaEdicao.fxml", "Novo Telefone");
+        if(novoTelefone != null)
+        {
+            setNovoTelefone(novoTelefone);
+        }
     }
 
-    private String abrirMiniPaginaEdicao(String fxmlFile, String labelText) {
-        MiniPaginaEdicaoController controller = Recursos.WindowManager.openWindowToEdit(fxmlFile, labelText);
-        return (controller != null) ? controller.getNovoOpcao(): null;
+    public void setNovoNome(String novoNome) {
+        this.novoNome = novoNome;
+    }
+
+    public void setNovoEmail(String novoEmail) {
+        this.novoEmail = novoEmail;
+    }
+
+    public void setNovaSenha(String novaSenha) {
+        this.novaSenha = novaSenha;
+    }
+
+    public void setNovoTelefone(String novoTelefone) {
+        this.novoTelefone = novoTelefone;
     }
 
     public void initialize()
     {
-        Utilizador utilizadorLogado = AuthService.getUtilizadorLogado();
+        utilizadorLogado = AuthService.getUtilizadorLogado();
 
         LabelNomeUtilizador.setText(utilizadorLogado.getNome());
         LabelEmailUtilizador.setText(utilizadorLogado.getEmail());
         LabelSenhaUtilizador.setText(utilizadorLogado.getSenha());
         LabelTelefoneUtilizador.setText(utilizadorLogado.getTelefone());
+
+        setNovoNome(utilizadorLogado.getNome());
+        setNovoEmail(utilizadorLogado.getEmail());
+        setNovaSenha(utilizadorLogado.getSenha());
+        setNovoTelefone(utilizadorLogado.getTelefone());
     }
 }

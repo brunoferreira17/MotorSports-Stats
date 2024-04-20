@@ -44,7 +44,7 @@ public class Recursos
 
     public static class WindowManager
     {
-        public static void openWindowToEdit(String fxmlFile, String Text)
+        public static String openWindowToEdit(String fxmlFile, String Text)
         {
             try {
                 // Carregar o arquivo FXML
@@ -57,9 +57,13 @@ public class Recursos
                 // Criar uma nova janela
                 Stage stage = new Stage();
                 stage.setScene(new Scene(root));
-                stage.show();
+                stage.showAndWait(); // Mostra a janela e espera até que ela seja fechada
+
+                return Controller.getNovoOpcao();
+
             } catch (IOException e) {
                 e.printStackTrace();
+                return null;
             }
         }
     }
