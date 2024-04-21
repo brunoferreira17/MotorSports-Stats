@@ -60,7 +60,7 @@
       <TableView layoutX="126.0" layoutY="256.0" prefHeight="446.0" prefWidth="675.0">
         <columns>
           <TableColumn prefWidth="30.0" text="#" />
-          <TableColumn prefWidth="150.0" text="CONDUTOR" />
+          <TableColumn prefWidth="150.0" text="COM" />
             <TableColumn prefWidth="175.0" text="EQUIPA" />
             <TableColumn prefWidth="100.0" text="TEMPO" />
             <TableColumn prefWidth="75.0" text="VOLTAS" />
