@@ -1,19 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" stylesheets="@../desktop/css/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.motorsportstats.desktop.Formula1Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" stylesheets="@../desktop/css/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.motorsportstats.desktop.Formula1Controller">
    <children>
       <AnchorPane layoutY="-6.0" prefHeight="101.0" prefWidth="800.0" style="-fx-background-color: #4599de;">
          <children>
@@ -39,6 +32,7 @@
                   <Image url="@images/profile.png" />
                </image>
             </ImageView>
+            <MenuButton fx:id="MenuAnos" layoutX="578.0" layoutY="50.0" mnemonicParsing="false" />
          </children>
       </AnchorPane>
       <HBox layoutY="102.0" prefHeight="50.0" prefWidth="800.0" spacing="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="102.0">
@@ -48,22 +42,16 @@
                   <Insets />
                </HBox.margin>
             </Button>
-            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="FORMULA 1" />
+            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="100.0" text="FORMULA 1" />
             <Button layoutX="110.0" layoutY="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="WRC" />
             <Button layoutX="210.0" layoutY="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="MOTO GP" />
          </children>
       </HBox>
-      <MenuButton layoutX="624.0" layoutY="152.0" mnemonicParsing="false" text="MenuButton">
-        <items>
-          <MenuItem mnemonicParsing="false" text="Action 1" />
-          <MenuItem mnemonicParsing="false" text="Action 2" />
-        </items>
-      </MenuButton>
-      <TableView layoutY="152.0" prefHeight="552.0" prefWidth="800.0">
+      <TableView fx:id="TabelaFormula1" layoutY="152.0" prefHeight="552.0" prefWidth="800.0">
         <columns>
           <TableColumn fx:id="DataCorridas" prefWidth="105.0" text="Data" />
           <TableColumn fx:id="Competicoes" prefWidth="420.0" text="Competição" />
-            <TableColumn fx:id="Vencedores" prefWidth="274.0" text="Vencedor" />
+            <TableColumn fx:id="País" prefWidth="274.0" text="País" />
         </columns>
       </TableView>
    </children>

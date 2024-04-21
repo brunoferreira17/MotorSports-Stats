@@ -164,4 +164,18 @@ public class Funcoes
             return new ArrayList<>();
         }
     }
+    public static List<Competicao> GetCompeticoesPorAno(List<Competicao> competicoes, int anoSelecionado)
+    {
+        List<Competicao> competicoesAnoSelecionado = new ArrayList<>();
+
+        for (Competicao competicao : competicoes)
+        {
+            LocalDate dataInicio = competicao.getDataInicio();
+
+            if (dataInicio != null && dataInicio.getYear() == anoSelecionado) {
+                competicoesAnoSelecionado.add(competicao);
+            }
+        }
+        return competicoesAnoSelecionado;
+    }
 }

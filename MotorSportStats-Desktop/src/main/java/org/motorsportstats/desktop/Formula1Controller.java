@@ -2,13 +2,16 @@ package org.motorsportstats.desktop;
 
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
+import javafx.scene.control.*;
 import org.motorsportstats.services.Funcoes;
 import org.motorsportstatscore.entity.*;
 
 import java.time.LocalDate;
+import java.time.Year;
 import java.util.List;
 
 public class Formula1Controller
@@ -22,7 +25,13 @@ public class Formula1Controller
     @FXML
     private TableColumn<Competicao, String> Competicoes;
     @FXML
-    private TableColumn<Competicao, String> Vencedores;
+    private TableColumn<Competicao, String> País;
+    @FXML
+    private TableView TabelaFormula1;
+    @FXML
+    private MenuButton MenuAnos;
+
+    List<Competicao> competicoesFormula1 = Funcoes.GetCompeticoesFormula1();
 
     @FXML
     private void handleButEditarPerfil()
@@ -43,21 +52,60 @@ public class Formula1Controller
 
     private void carregarDados()
     {
-        Utilizador utilizadorLogado = AuthService.getUtilizadorLogado();
+        int anoAtual = Year.now().getValue();
 
-        //List<TipoCompeticao> tipoCompeticoesFavoritas = Funcoes --- Por Fazer a Funçao
+        MenuAnos.setText(String.valueOf(anoAtual));
 
-        List<Competicao> competicoesFormula1 = Funcoes.GetCompeticoesFormula1();
-        atualizarTabelas(utilizadorLogado,competicoesFormula1);
+        List<Competicao> competicoesFormula1Ano = Funcoes.GetCompeticoesPorAno(competicoesFormula1,anoAtual);
+
+        atualizarTabelas(competicoesFormula1Ano);
+
+        adicionarAnosAoMenuButton();
     }
 
-    private void atualizarTabelas(Utilizador utilizadorLogado,List<Competicao> competicoesFormula1)
+    private void adicionarAnosAoMenuButton()
+    {
+        // Recolher anos únicos das competições
+        for (Competicao competicao : competicoesFormula1) {
+            int ano = competicao.getDataInicio().getYear();
+            // Verificar se o ano já foi adicionado ao MenuButton
+            boolean anoJaAdicionado = false;
+            for (MenuItem item : MenuAnos.getItems()) {
+                if (item.getText().equals(String.valueOf(ano))) {
+                    anoJaAdicionado = true;
+                    break;
+                }
+            }
+            // Adicionar o ano ao MenuButton se ainda não foi adicionado
+            if (!anoJaAdicionado) {
+                MenuItem menuItem = new MenuItem(String.valueOf(ano));
+                menuItem.setOnAction(this::selecionarAno);
+                MenuAnos.getItems().add(menuItem);
+            }
+        }
+    }
+    private void selecionarAno(ActionEvent event)
+    {
+        MenuItem menuItem = (MenuItem) event.getSource();
+        int anoSelecionado = Integer.parseInt(menuItem.getText());
+
+        MenuAnos.setText(menuItem.getText());
+
+        List<Competicao> competicoesAnoSelecionado = Funcoes.GetCompeticoesPorAno(competicoesFormula1, anoSelecionado);
+        atualizarTabelas(competicoesAnoSelecionado);
+    }
+
+    private void atualizarTabelas(List<Competicao> competicoesFormula1)
     {
         if (!competicoesFormula1.isEmpty())
         {
             DataCorridas.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getDataInicio()));
             Competicoes.setCellValueFactory(cellData ->  new SimpleStringProperty(cellData.getValue().getNome()));
-            Vencedores.setCellValueFactory(cellData ->  new SimpleStringProperty(cellData.getValue().getPais()));
+            //Falta implementar Coluna Vencedor Da Respetiva Competiçao!
+            País.setCellValueFactory(cellData ->  new SimpleStringProperty(cellData.getValue().getPais()));
+
+            TabelaFormula1.setItems(FXCollections.observableArrayList(competicoesFormula1));
+            TabelaFormula1.refresh();
         }
     }
 
