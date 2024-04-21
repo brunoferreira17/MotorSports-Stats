@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" stylesheets="@../desktop/css/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.motorsportstats.desktop.AoVivoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" stylesheets="@../desktop/css/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.motorsportstats.desktop.Formula1Controller">
    <children>
       <AnchorPane layoutY="-6.0" prefHeight="101.0" prefWidth="800.0" style="-fx-background-color: #4599de;">
          <children>
@@ -43,7 +43,7 @@
       </AnchorPane>
       <HBox layoutY="102.0" prefHeight="50.0" prefWidth="800.0" spacing="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="102.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="109.0" text="INICIO">
+            <Button fx:id="BotaoAoVivo" mnemonicParsing="false" onAction="#handleButAoVivo" prefHeight="50.0" prefWidth="109.0" text="INICIO">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
@@ -61,9 +61,9 @@
       </MenuButton>
       <TableView layoutY="152.0" prefHeight="552.0" prefWidth="800.0">
         <columns>
-          <TableColumn prefWidth="105.0" text="Data" />
-          <TableColumn prefWidth="420.0" text="Competição" />
-            <TableColumn prefWidth="274.0" text="Vencedor" />
+          <TableColumn fx:id="DataCorridas" prefWidth="105.0" text="Data" />
+          <TableColumn fx:id="Competicoes" prefWidth="420.0" text="Competição" />
+            <TableColumn fx:id="Vencedores" prefWidth="274.0" text="Vencedor" />
         </columns>
       </TableView>
    </children>

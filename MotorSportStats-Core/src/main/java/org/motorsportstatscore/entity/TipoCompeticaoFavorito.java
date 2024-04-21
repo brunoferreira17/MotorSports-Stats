@@ -1,4 +1,4 @@
-package org.motorsportstatscore.entity;
+/*package org.motorsportstatscore.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 /**
  * $table.getTableComment()
- */
+
 @jakarta.persistence.Table(name = "tipo_competicao_favorito")
 @jakarta.persistence.Entity
 @Entity
@@ -53,4 +53,4 @@ public class TipoCompeticaoFavorito implements Serializable {
                 "idTipoCompeticao=" + idTipoCompeticao + '\'' +
                 '}';
     }
-}
+}*/

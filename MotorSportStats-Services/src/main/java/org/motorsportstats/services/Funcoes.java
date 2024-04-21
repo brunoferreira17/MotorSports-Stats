@@ -139,4 +139,27 @@ public class Funcoes
                 .distinct()
                 .collect(Collectors.toList());
     }
+
+    public static List<Competicao> GetCompeticoesFormula1()
+    {
+
+        String jpql = "SELECT DISTINCT c " +
+                "FROM Competicao c " +
+                "JOIN c.idTipoCompeticao tc " +
+                "WHERE tc.tipoCompeticao = :tipo";
+
+        List<Competicao> CompeticoesFormula1 = DbConnection.getEntityManager()
+                .createQuery(jpql, Competicao.class)
+                .setParameter("tipo", "Formula1")
+                .getResultList();
+
+        /*WHERE u.data = :data*/
+        if(!CompeticoesFormula1.isEmpty())
+        {
+            return  CompeticoesFormula1;
+        }else
+        {
+            return new ArrayList<>();
+        }
+    }
 }
