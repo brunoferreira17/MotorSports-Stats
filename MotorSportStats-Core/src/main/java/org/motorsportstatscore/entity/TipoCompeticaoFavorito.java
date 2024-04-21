@@ -1,4 +1,4 @@
-/*package org.motorsportstatscore.entity;
+/* package org.motorsportstatscore.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -7,16 +7,14 @@ import jakarta.persistence.Table;
 
 import java.io.Serializable;
 
-/**
- * $table.getTableComment()
 
-@jakarta.persistence.Table(name = "tipo_competicao_favorito")
-@jakarta.persistence.Entity
+ $table.getTableComment()
+
+
 @Entity
 @Table(name = "tipo_competicao_favorito")
-public class TipoCompeticaoFavorito implements Serializable {
+public class TipoCompeticaoFavorito{
 
-    private static final long serialVersionUID = 1L;
 
     @jakarta.persistence.Column(name = "id_favorito", nullable = false)
     @jakarta.persistence.Id
@@ -53,4 +51,4 @@ public class TipoCompeticaoFavorito implements Serializable {
                 "idTipoCompeticao=" + idTipoCompeticao + '\'' +
                 '}';
     }
-}*/
+} */

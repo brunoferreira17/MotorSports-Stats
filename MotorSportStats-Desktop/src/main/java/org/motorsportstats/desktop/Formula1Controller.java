@@ -38,7 +38,7 @@ public class Formula1Controller
     @FXML
     public void initialize()
     {
-
+        carregarDados();
     }
 
     private void carregarDados()
