@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" stylesheets="@../desktop/css/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.motorsportstats.desktop.AoVivoController">
+   <children>
+      <AnchorPane layoutY="-6.0" prefHeight="101.0" prefWidth="800.0" style="-fx-background-color: #4599de;">
+         <children>
+            <ImageView fitHeight="79.0" fitWidth="83.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/capacete.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="99.0" layoutY="20.0" prefHeight="61.0" prefWidth="214.0" text="MotorSport-Stats" textAlignment="CENTER">
+               <font>
+                  <Font name="Harlow Solid Italic" size="28.0" />
+               </font>
+            </Label>
+            <Button layoutX="687.0" layoutY="31.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="38.0" />
+            <Button fx:id="BotaoEditarPerfil" layoutX="737.0" layoutY="31.0" mnemonicParsing="false" onAction="#handleButEditarPerfil" prefHeight="38.0" prefWidth="38.0" />
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="691.0" layoutY="35.0">
+               <image>
+                  <Image url="@images/lupa-arredondada.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="742.0" layoutY="36.0">
+               <image>
+                  <Image url="@images/profile.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <HBox layoutY="102.0" prefHeight="50.0" prefWidth="800.0" spacing="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="102.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="109.0" text="INICIO">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Button>
+            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="FORMULA 1" />
+            <Button layoutX="110.0" layoutY="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="WRC" />
+            <Button layoutX="210.0" layoutY="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="MOTO GP" />
+         </children>
+      </HBox>
+      <MenuButton layoutX="624.0" layoutY="152.0" mnemonicParsing="false" text="MenuButton">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Action 1" />
+          <MenuItem mnemonicParsing="false" text="Action 2" />
+        </items>
+      </MenuButton>
+      <TableView layoutY="152.0" prefHeight="552.0" prefWidth="800.0">
+        <columns>
+          <TableColumn prefWidth="105.0" text="Data" />
+          <TableColumn prefWidth="420.0" text="Competição" />
+            <TableColumn prefWidth="274.0" text="Vencedor" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
