@@ -2,94 +2,77 @@ package org.motorsportstatscore.entity;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.sql.Date;
 
 @Entity
 @Table(name = "corrida")
 public class Corrida {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_corrida", nullable = false)
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idCorrida;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_competicao")
-    private Competicao idCompeticao;
+    @Column(name = "id_competicao", nullable = false)
+    private Long idCompeticao;
 
-    @Column(name = "data")
-    private LocalDate data;
+    @Column(name = "data", nullable = false)
+    private Date data;
 
-    @Column(name = "local", length = 50)
+    @Column(name = "local", nullable = false)
     private String local;
 
-    @Column(name = "nome", length = 50)
+    @Column(name = "nome", nullable = false)
     private String nome;
 
-    @OneToMany(mappedBy = "idCorrida")
-    private Set<CorridaStage> corridaStages = new LinkedHashSet<>();
-
-    @OneToMany(mappedBy = "idCorrida")
-    private Set<CorridaVolta> corridaVoltas = new LinkedHashSet<>();
-
-    @OneToMany(mappedBy = "idCorrida")
-    private Set<Resultado> resultados = new LinkedHashSet<>();
-
-    public Integer getId() {
-        return id;
+    public void setIdCorrida(Long idCorrida) {
+        this.idCorrida = idCorrida;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public Long getIdCorrida() {
+        return idCorrida;
     }
 
-    public Competicao getIdCompeticao() {
-        return idCompeticao;
-    }
-
-    public void setIdCompeticao(Competicao idCompeticao) {
+    public void setIdCompeticao(Long idCompeticao) {
         this.idCompeticao = idCompeticao;
     }
 
-    public LocalDate getData() {
-        return data;
+    public Long getIdCompeticao() {
+        return idCompeticao;
     }
 
-    public void setData(LocalDate data) {
+    public void setData(Date data) {
         this.data = data;
     }
 
-    public String getLocal() {
-        return local;
+    public Date getData() {
+        return data;
     }
 
     public void setLocal(String local) {
         this.local = local;
     }
 
-    public Set<CorridaStage> getCorridaStages() {
-        return corridaStages;
+    public String getLocal() {
+        return local;
     }
 
-    public void setCorridaStages(Set<CorridaStage> corridaStages) {
-        this.corridaStages = corridaStages;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public Set<CorridaVolta> getCorridaVoltas() {
-        return corridaVoltas;
+    public String getNome() {
+        return nome;
     }
 
-    public void setCorridaVoltas(Set<CorridaVolta> corridaVoltas) {
-        this.corridaVoltas = corridaVoltas;
+    @Override
+    public String toString() {
+        return "Corrida{" +
+                "idCorrida=" + idCorrida + '\'' +
+                "idCompeticao=" + idCompeticao + '\'' +
+                "data=" + data + '\'' +
+                "local=" + local + '\'' +
+                "nome=" + nome + '\'' +
+                '}';
     }
-
-    public Set<Resultado> getResultados() {
-        return resultados;
-    }
-
-    public void setResultados(Set<Resultado> resultados) {
-        this.resultados = resultados;
-    }
-
 }
