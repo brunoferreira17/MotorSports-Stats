@@ -107,6 +107,17 @@ public class Formula1Controller
             TabelaFormula1.setItems(FXCollections.observableArrayList(competicoesFormula1));
             TabelaFormula1.refresh();
         }
+
+        TabelaFormula1.setRowFactory(tv -> {
+            TableRow<Competicao> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (!row.isEmpty()) {
+                    Competicao rowData = row.getItem();
+
+                }
+            });
+            return row;
+        });
     }
 
 }

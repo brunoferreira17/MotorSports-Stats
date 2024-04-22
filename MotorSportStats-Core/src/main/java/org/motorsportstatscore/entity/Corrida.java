@@ -24,6 +24,9 @@ public class Corrida {
     @Column(name = "local", length = 50)
     private String local;
 
+    @Column(name = "nome", length = 50)
+    private String nome;
+
     @OneToMany(mappedBy = "idCorrida")
     private Set<CorridaStage> corridaStages = new LinkedHashSet<>();
 
