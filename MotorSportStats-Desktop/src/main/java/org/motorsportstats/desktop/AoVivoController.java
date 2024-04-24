@@ -121,13 +121,17 @@ public class AoVivoController
                         });
 
                         competicaoHBox.getChildren().add(imageView);
+
                         Label competicaoLabel = new Label(competicao.getNome());
                         competicaoHBox.getChildren().add(competicaoLabel);
+
                         Pane filler = new Pane();
                         HBox.setHgrow(filler, Priority.ALWAYS);
                         competicaoHBox.getChildren().add(filler);
+
                         Label dataLabel = new Label(competicao.getDataInicio().toString());
                         competicaoHBox.getChildren().add(dataLabel);
+
                         competicaoHBox.setOnMouseClicked(event ->
                                 Recursos.SceneSwitcher.switchScene("desporto.fxml",competicaoHBox));
                         tipoCompeticaoAccordion.getPanes().add(tipoCompeticaoPane);

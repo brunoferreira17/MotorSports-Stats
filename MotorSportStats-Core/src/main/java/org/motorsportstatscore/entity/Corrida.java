@@ -11,10 +11,10 @@ public class Corrida {
     @Id
     @Column(name = "id_corrida", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idCorrida;
+    private Integer idCorrida;
 
     @Column(name = "id_competicao", nullable = false)
-    private Long idCompeticao;
+    private Integer idCompeticao;
 
     @Column(name = "data", nullable = false)
     private Date data;
@@ -25,19 +25,19 @@ public class Corrida {
     @Column(name = "nome", nullable = false)
     private String nome;
 
-    public void setIdCorrida(Long idCorrida) {
+    public void setIdCorrida(Integer idCorrida) {
         this.idCorrida = idCorrida;
     }
 
-    public Long getIdCorrida() {
+    public Integer getIdCorrida() {
         return idCorrida;
     }
 
-    public void setIdCompeticao(Long idCompeticao) {
+    public void setIdCompeticao(Integer idCompeticao) {
         this.idCompeticao = idCompeticao;
     }
 
-    public Long getIdCompeticao() {
+    public Integer getIdCompeticao() {
         return idCompeticao;
     }
 

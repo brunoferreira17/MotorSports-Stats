@@ -178,4 +178,39 @@ public class Funcoes
         }
         return competicoesAnoSelecionado;
     }
+    public static List<Corrida> GetCorridasDaCompeticao(Integer id_competicao)
+    {
+
+        List<Corrida> CorridaDoDia = DbConnection.getEntityManager()
+                .createQuery("SELECT u FROM Corrida u WHERE u.idCompeticao = :id", Corrida.class)
+                .setParameter("id", id_competicao)
+                .getResultList();
+
+        /*WHERE u.data = :data*/
+        if(!CorridaDoDia.isEmpty())
+        {
+            return  CorridaDoDia;
+        }else
+        {
+            return new ArrayList<>();
+        }
+    }
+
+    public static List<Resultado> GetResultadosDaCorrida (Integer id_corrida)
+    {
+
+        List<Resultado> ResultadoDaCorrida = DbConnection.getEntityManager()
+                .createQuery("SELECT u FROM Resultado u WHERE u.idCorrida = :id", Resultado.class)
+                .setParameter("id", id_corrida)
+                .getResultList();
+
+        /*WHERE u.data = :data*/
+        if(!ResultadoDaCorrida.isEmpty())
+        {
+            return  ResultadoDaCorrida;
+        }else
+        {
+            return new ArrayList<>();
+        }
+    }
 }

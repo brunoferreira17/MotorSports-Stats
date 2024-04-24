@@ -113,7 +113,7 @@ public class Formula1Controller
             row.setOnMouseClicked(event -> {
                 if (!row.isEmpty()) {
                     Competicao rowData = row.getItem();
-
+                    System.out.println("Celula Clicada " + rowData.getNome());
                 }
             });
             return row;
