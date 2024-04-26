@@ -112,12 +112,11 @@ public class Formula1Controller
             row.setOnMouseClicked(event -> {
                 if (!row.isEmpty()) {
                     Competicao rowData = row.getItem();
-                    AuthService.setId_competicao(rowData.getId());
-                    Recursos.SceneSwitcher.switchScene("F1Competicao.fxml",row);
+                    ID_Saver.setId_competicao(rowData.getId());
+                    Recursos.SceneSwitcher.switchScene("F1Corrida.fxml",row);
                 }
             });
             return row;
         });
     }
-
 }

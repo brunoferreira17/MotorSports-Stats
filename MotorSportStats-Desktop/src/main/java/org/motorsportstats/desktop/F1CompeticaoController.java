@@ -1,94 +1,87 @@
 package org.motorsportstats.desktop;
 
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Accordion;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TitledPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.control.*;
 import org.motorsportstats.services.Funcoes;
-import org.motorsportstatscore.entity.*;
+import org.motorsportstatscore.entity.AuthService;
+import org.motorsportstatscore.entity.Competicao;
+import org.motorsportstatscore.entity.Corrida;
+import org.motorsportstatscore.entity.ID_Saver;
 
-import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 public class F1CompeticaoController
 {
     @FXML
     private Button BotaoEditarPerfil;
     @FXML
-    private VBox TabelaCorridas;
+    private Button BotaoAoVivo;
+    @FXML
+    private TableColumn<Corrida, Date> DataCorridas;
+    @FXML
+    private TableColumn<Corrida, String> ColunaCorridas;
+    @FXML
+    private TableColumn<Competicao, String> País;
+    @FXML
+    private TableView TabelaFormula1;
+    @FXML
+    private MenuButton MenuAnos;
+
+    List<Competicao> competicoesFormula1 = Funcoes.GetCompeticoesFormula1();
+
     @FXML
     private void handleButEditarPerfil()
     {
         Recursos.SceneSwitcher.switchScene("editarperfil.fxml",BotaoEditarPerfil);
     }
+    @FXML
+    private void handleButAoVivo()
+    {
+        Recursos.SceneSwitcher.switchScene("inicio_aovivo.fxml",BotaoAoVivo);
+    }
 
+    @FXML
     public void initialize()
     {
-        atualizarTabelaCorridas(AuthService.getId_competicao());
+        carregarDados();
     }
 
-    private void atualizarTabelaCorridas(Integer id_competicao)
+    private void carregarDados()
     {
-        TabelaCorridas.getChildren().clear();
-
-        List<Corrida> CorridasDaCompeticao = Funcoes.GetCorridasDaCompeticao(id_competicao);
-
-        if (CorridasDaCompeticao.isEmpty()) {
-            Label aviso = new Label("Não há Corridas Desta Competiçao!");
-            TabelaCorridas.getChildren().add(aviso);
-        } else {
-
-            Accordion CorridasAccordion = new Accordion();
-
-            for (Corrida corrida : CorridasDaCompeticao)
-            {
-
-                TitledPane titledPane = new TitledPane();
-                titledPane.setText(corrida.getNome());
-
-                // Criar o conteúdo do TitledPane para exibir os resultados da corrida
-                VBox conteudoPane = new VBox();
-
-                // Aqui você pode adicionar os resultados da corrida, por exemplo:
-                List<Object[]> results = Funcoes.obterResultadosPorCorrida(corrida.getIdCorrida());
-
-                // Itere sobre os resultados
-                for (Object[] result : results) {
-                    int posicao = (int) result[0];
-                    String pilotoNome = (String) result[1];
-                    String equipaNome = (String) result[2];
-                    String tempo = result[3].toString(); // Tempo pode precisar de conversão para String
-
-                    // Crie um HBox para exibir cada resultado
-                    HBox resultadoBox = new HBox();
-
-                    // Crie Labels para cada campo do resultado
-                    Label posicaoLabel = new Label("Posição: " + posicao + "|");
-                    Label pilotoLabel = new Label("Piloto: " + pilotoNome + "|");
-                    Label equipaLabel = new Label("Equipa: " + equipaNome + "|");
-                    Label tempoLabel = new Label("Tempo: " + tempo);
-
-
-                    // Adicione os Labels ao HBox
-                    resultadoBox.getChildren().addAll(posicaoLabel, pilotoLabel, equipaLabel, tempoLabel);
-
-                    // Adicione o HBox ao conteúdo do TitledPane
-                    conteudoPane.getChildren().add(resultadoBox);
-                }
-
-
-                titledPane.setContent(conteudoPane);
-
-                CorridasAccordion.getPanes().add(titledPane);
-            }
-
-            TabelaCorridas.getChildren().add(CorridasAccordion);
-
-        }
+        Integer id_comp = ID_Saver.getId_competicao();
+        List<Corrida> Corridas = Funcoes.GetCorridasDaCompeticao(id_comp);
+        atualizarTabelas(Corridas);
     }
 
+    private void atualizarTabelas(List<Corrida> Corridas)
+    {
+        if (!Corridas.isEmpty())
+        {
+            DataCorridas.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getData()));
+            ColunaCorridas.setCellValueFactory(cellData ->  new SimpleStringProperty(cellData.getValue().getNome()));
+            //Falta implementar Coluna Vencedor Da Respetiva Corrida!
+            País.setCellValueFactory(cellData ->  new SimpleStringProperty(cellData.getValue().getPais()));
+
+            TabelaFormula1.setItems(FXCollections.observableArrayList(competicoesFormula1));
+            TabelaFormula1.refresh();
+        }
+
+        TabelaFormula1.setRowFactory(tv -> {
+            TableRow<Corrida> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (!row.isEmpty()) {
+                    Corrida rowData = row.getItem();
+                    ID_Saver.setId_corrida(rowData.getIdCorrida());
+                    Recursos.SceneSwitcher.switchScene("F1Corrida.fxml",row);
+                }
+            });
+            return row;
+        });
+    }
 }
+
