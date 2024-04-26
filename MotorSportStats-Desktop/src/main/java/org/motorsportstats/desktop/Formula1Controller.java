@@ -3,7 +3,6 @@ package org.motorsportstats.desktop;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -113,7 +112,8 @@ public class Formula1Controller
             row.setOnMouseClicked(event -> {
                 if (!row.isEmpty()) {
                     Competicao rowData = row.getItem();
-                    System.out.println("Celula Clicada " + rowData.getNome());
+                    AuthService.setId_competicao(rowData.getId());
+                    Recursos.SceneSwitcher.switchScene("F1Competicao.fxml",row);
                 }
             });
             return row;
