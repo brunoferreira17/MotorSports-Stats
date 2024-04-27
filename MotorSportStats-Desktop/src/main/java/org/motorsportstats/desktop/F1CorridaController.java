@@ -16,14 +16,6 @@ public class F1CorridaController
     @FXML
     private TableView TabelaCorrida;
     @FXML
-    private TableColumn ColunaPosicao;
-    @FXML
-    private TableColumn ColunaPiloto;
-    @FXML
-    private TableColumn ColunaEquipa;
-    @FXML
-    private TableColumn ColunaTempo;
-    @FXML
     private Label LabelNomeCorrida;
     @FXML
     private void handleButEditarPerfil()
