@@ -199,24 +199,6 @@ public class Funcoes
         }
     }
 
-    public static List<Resultado> GetResultadosDaCorrida (Integer id_corrida)
-    {
-
-        List<Resultado> ResultadoDaCorrida = DbConnection.getEntityManager()
-                .createQuery("SELECT u FROM Resultado u WHERE u.idCorrida = :id", Resultado.class)
-                .setParameter("id", id_corrida)
-                .getResultList();
-
-        /*WHERE u.data = :data*/
-        if(!ResultadoDaCorrida.isEmpty())
-        {
-            return  ResultadoDaCorrida;
-        }else
-        {
-            return new ArrayList<>();
-        }
-    }
-
     public static List obterResultadosPorCorrida(int idCorrida) {
         EntityManager em = DbConnection.getEntityManager();
         // Crie uma chamada à função armazenada

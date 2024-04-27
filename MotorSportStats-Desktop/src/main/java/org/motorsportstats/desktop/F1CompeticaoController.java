@@ -26,13 +26,12 @@ public class F1CompeticaoController
     @FXML
     private TableColumn<Corrida, String> ColunaCorridas;
     @FXML
-    private TableColumn<Competicao, String> País;
+    private TableColumn<Corrida, String> País;
     @FXML
     private TableView TabelaFormula1;
     @FXML
     private MenuButton MenuAnos;
 
-    List<Competicao> competicoesFormula1 = Funcoes.GetCompeticoesFormula1();
 
     @FXML
     private void handleButEditarPerfil()
@@ -65,9 +64,9 @@ public class F1CompeticaoController
             DataCorridas.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getData()));
             ColunaCorridas.setCellValueFactory(cellData ->  new SimpleStringProperty(cellData.getValue().getNome()));
             //Falta implementar Coluna Vencedor Da Respetiva Corrida!
-            País.setCellValueFactory(cellData ->  new SimpleStringProperty(cellData.getValue().getPais()));
+            País.setCellValueFactory(cellData ->  new SimpleStringProperty(cellData.getValue().getLocal()));
 
-            TabelaFormula1.setItems(FXCollections.observableArrayList(competicoesFormula1));
+            TabelaFormula1.setItems(FXCollections.observableArrayList(Corridas));
             TabelaFormula1.refresh();
         }
 
