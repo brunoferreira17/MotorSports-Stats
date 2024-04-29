@@ -201,13 +201,12 @@ public class Funcoes
 
     public static List obterResultadosPorCorrida(int idCorrida) {
         EntityManager em = DbConnection.getEntityManager();
-        // Crie uma chamada à função armazenada
+
         StoredProcedureQuery query = em.createStoredProcedureQuery("obter_resultados_por_corrida");
-        // Defina os parâmetros da função
+
         query.registerStoredProcedureParameter("id_corrida_escolhido", Integer.class, ParameterMode.IN);
         query.setParameter("id_corrida_escolhido", idCorrida);
 
-        // Execute a função e retorne os resultados
         return query.getResultList();
     }
 }
