@@ -26,15 +26,15 @@
         @FXML
         private Button BotaoAoVivo;
         @FXML
-        private TableView<ResultadosFormula1> TabelaCorrida;
+        private TableView<Resultados> TabelaCorrida;
         @FXML
-        private TableColumn<ResultadosFormula1, Integer> ColunaPosicao;
+        private TableColumn<Resultados, Integer> ColunaPosicao;
         @FXML
-        private TableColumn<ResultadosFormula1, String> ColunaPiloto;
+        private TableColumn<Resultados, String> ColunaPiloto;
         @FXML
-        private TableColumn<ResultadosFormula1, String> ColunaEquipa;
+        private TableColumn<Resultados, String> ColunaEquipa;
         @FXML
-        private TableColumn<ResultadosFormula1, String> ColunaTempo;
+        private TableColumn<Resultados, String> ColunaTempo;
         @FXML
         private Label LabelNomeCorrida;
         @FXML
@@ -52,7 +52,6 @@
         public void initialize()
         {
             carregarDados();
-            atualizarTabelaCorridas(ID_Saver.getId_corrida());
         }
 
         private void carregarDados() {
@@ -68,7 +67,7 @@
 
         private void atualizarTabelaCorridas(Integer id_corrida) {
             List<Object[]> results = Funcoes.obterResultadosPorCorrida(id_corrida);
-            List<ResultadosFormula1> resultados = new ArrayList<>();
+            List<Resultados> resultados = new ArrayList<>();
 
             for (Object[] result : results)
             {
@@ -77,7 +76,7 @@
                 String equipaNome = (String) result[2];
                 String tempoFormatado = formatarTempo(result[3]);
 
-                resultados.add(new ResultadosFormula1(posicao, pilotoNome, equipaNome, tempoFormatado));
+                resultados.add(new Resultados(posicao, pilotoNome, equipaNome, tempoFormatado));
             }
 
             ColunaPosicao.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getPosicao()).asObject());
@@ -123,8 +122,4 @@
                 return "Formato de tempo inválido";
             }
         }
-
-
-
-
     }

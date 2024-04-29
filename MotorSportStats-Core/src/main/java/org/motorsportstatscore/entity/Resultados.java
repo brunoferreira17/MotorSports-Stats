@@ -1,11 +1,11 @@
 package org.motorsportstatscore.entity;
 
-public class ResultadosFormula1 {
+public class Resultados {
     private int posicao;
     private String pilotoNome;
     private String equipaNome;
     private String tempoFormatado;
-    public ResultadosFormula1(int posicao, String pilotoNome, String equipaNome, String tempoFormatado) {
+    public Resultados(int posicao, String pilotoNome, String equipaNome, String tempoFormatado) {
         this.posicao = posicao;
         this.pilotoNome = pilotoNome;
         this.equipaNome = equipaNome;
