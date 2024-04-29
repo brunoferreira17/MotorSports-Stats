@@ -1,12 +1,14 @@
     package org.motorsportstats.desktop;
 
+    import javafx.beans.property.SimpleIntegerProperty;
+    import javafx.beans.property.SimpleStringProperty;
+    import javafx.collections.FXCollections;
     import javafx.fxml.FXML;
     import javafx.scene.control.*;
     import org.motorsportstats.services.Funcoes;
     import org.motorsportstatscore.entity.*;
 
     import java.util.ArrayList;
-    import java.util.Date;
     import java.util.List;
     import org.postgresql.util.PGInterval;
 
@@ -18,15 +20,15 @@
         @FXML
         private Button BotaoAoVivo;
         @FXML
-        private TableView<String> TabelaCorrida;
+        private TableView<ResultadosFormula1> TabelaCorrida;
         @FXML
-        private TableColumn<Corrida, Date> ColunaPosicao;
+        private TableColumn<ResultadosFormula1, Integer> ColunaPosicao;
         @FXML
-        private TableColumn<Corrida, String> ColunaPiloto;
+        private TableColumn<ResultadosFormula1, String> ColunaPiloto;
         @FXML
-        private TableColumn<Corrida, String> ColunaEquipa;
+        private TableColumn<ResultadosFormula1, String> ColunaEquipa;
         @FXML
-        private TableColumn ColunaTempo;
+        private TableColumn<ResultadosFormula1, String> ColunaTempo;
         @FXML
         private Label LabelNomeCorrida;
         @FXML
@@ -48,6 +50,7 @@
 
         private void atualizarTabelaCorridas(Integer id_corrida) {
             List<Object[]> results = Funcoes.obterResultadosPorCorrida(id_corrida);
+            List<ResultadosFormula1> resultados = new ArrayList<>();
 
             for (Object[] result : results) {
                 int posicao = (int) result[0];
@@ -55,17 +58,18 @@
                 String equipaNome = (String) result[2];
                 String tempoFormatado = formatarTempo(result[3]);
 
-                List<String> rowItems = new ArrayList<>();
-                rowItems.add(Integer.toString(posicao));
-                rowItems.add(pilotoNome);
-                rowItems.add(equipaNome);
-                rowItems.add(tempoFormatado);
-
-                // Adicionar os itens da linha à TableView
-                TabelaCorrida.getItems().addAll(rowItems);
+                resultados.add(new ResultadosFormula1(posicao, pilotoNome, equipaNome, tempoFormatado));
             }
+
+            ColunaPosicao.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getPosicao()).asObject());
+            ColunaPiloto.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getPilotoNome()));
+            ColunaEquipa.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getEquipaNome()));
+            ColunaTempo.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getTempoFormatado()));
+
+            TabelaCorrida.setItems(FXCollections.observableArrayList(resultados));
             TabelaCorrida.refresh();
         }
+
 
 
 

@@ -64,10 +64,10 @@ public class Formula1Controller
 
     private void adicionarAnosAoMenuButton()
     {
-        // Recolher anos únicos das competições
-        for (Competicao competicao : competicoesFormula1) {
+        for (Competicao competicao : competicoesFormula1)
+        {
             int ano = competicao.getDataInicio().getYear();
-            // Verificar se o ano já foi adicionado ao MenuButton
+
             boolean anoJaAdicionado = false;
             for (MenuItem item : MenuAnos.getItems()) {
                 if (item.getText().equals(String.valueOf(ano))) {
@@ -75,7 +75,7 @@ public class Formula1Controller
                     break;
                 }
             }
-            // Adicionar o ano ao MenuButton se ainda não foi adicionado
+
             if (!anoJaAdicionado) {
                 MenuItem menuItem = new MenuItem(String.valueOf(ano));
                 menuItem.setOnAction(this::selecionarAno);
