@@ -7,6 +7,7 @@ import javafx.scene.control.TextField;
 import org.motorsportstatscore.entity.AuthService;
 import org.motorsportstatscore.entity.Utilizador;
 import org.motorsportstatscore.repository.UtilizadorRepository;
+import org.motorsportstatscore.entity.TipoUtilizador;
 
 
 public class LoginController
@@ -28,7 +29,13 @@ public class LoginController
         if(utilizadorLogado != null)
         {
             AuthService.setUtilizadorLogado(utilizadorLogado);
-            Recursos.SceneSwitcher.switchScene("inicio_aovivo.fxml",ButConfirmarLogin);
+            if(utilizadorLogado.getTipo() == TipoUtilizador.utilizador)
+            {
+                Recursos.SceneSwitcher.switchScene("inicio_aovivo.fxml",ButConfirmarLogin);
+            } else if (utilizadorLogado.getTipo() == TipoUtilizador.admin)
+            {
+                Recursos.SceneSwitcher.switchScene("MenuAdmin.fxml",ButConfirmarLogin);
+            }
         }
 
     }

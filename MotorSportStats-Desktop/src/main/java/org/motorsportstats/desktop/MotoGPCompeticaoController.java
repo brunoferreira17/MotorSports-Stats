@@ -71,7 +71,7 @@ public class MotoGPCompeticaoController
                 if (!row.isEmpty()) {
                     Corrida rowData = row.getItem();
                     ID_Saver.setId_corrida(rowData.getIdCorrida());
-                    Recursos.SceneSwitcher.switchScene("F1Corrida.fxml",row);
+                    Recursos.SceneSwitcher.switchScene("MotoGPCorrida.fxml",row);
                 }
             });
             return row;
