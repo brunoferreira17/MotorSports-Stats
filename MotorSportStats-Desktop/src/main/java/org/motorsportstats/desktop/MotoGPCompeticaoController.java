@@ -12,7 +12,7 @@ import org.motorsportstatscore.entity.ID_Saver;
 import java.util.Date;
 import java.util.List;
 
-public class F1CompeticaoController
+public class MotoGPCompeticaoController
 {
     @FXML
     private Button BotaoEditarPerfil;
@@ -78,4 +78,3 @@ public class F1CompeticaoController
         });
     }
 }
-

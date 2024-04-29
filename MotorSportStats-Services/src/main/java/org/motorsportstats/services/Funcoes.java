@@ -159,14 +159,36 @@ public class Funcoes
         /*WHERE u.data = :data*/
         if(!CompeticoesFormula1.isEmpty())
         {
-            System.out.println("Tem Corridas");
             return  CompeticoesFormula1;
         }else
         {
-            System.out.println("Nao Tem Corridas");
             return new ArrayList<>();
         }
     }
+
+    public static List<Competicao> GetCompeticoesMotoGP()
+    {
+
+        String jpql = "SELECT DISTINCT c " +
+                "FROM Competicao c " +
+                "JOIN c.idTipoCompeticao tc " +
+                "WHERE tc.id = :tipoId";
+
+        List<Competicao> CompeticoesFormula1 = DbConnection.getEntityManager()
+                .createQuery(jpql, Competicao.class)
+                .setParameter("tipoId", 3)
+                .getResultList();
+
+        /*WHERE u.data = :data*/
+        if(!CompeticoesFormula1.isEmpty())
+        {
+            return  CompeticoesFormula1;
+        }else
+        {
+            return new ArrayList<>();
+        }
+    }
+
     public static List<Competicao> GetCompeticoesPorAno(List<Competicao> competicoes, int anoSelecionado)
     {
         List<Competicao> competicoesAnoSelecionado = new ArrayList<>();
