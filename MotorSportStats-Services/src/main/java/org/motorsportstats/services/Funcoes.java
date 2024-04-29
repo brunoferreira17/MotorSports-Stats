@@ -167,6 +167,32 @@ public class Funcoes
             return new ArrayList<>();
         }
     }
+
+    public static List<Competicao> GetCompeticoesWrc()
+    {
+
+        String jpql = "SELECT DISTINCT c " +
+                "FROM Competicao c " +
+                "JOIN c.idTipoCompeticao tc " +
+                "WHERE tc.id = :tipoId";
+
+        List<Competicao> CompeticoesWrc = DbConnection.getEntityManager()
+                .createQuery(jpql, Competicao.class)
+                .setParameter("tipoId", 1)
+                .getResultList();
+
+        /*WHERE u.data = :data*/
+        if(!CompeticoesWrc.isEmpty())
+        {
+            System.out.println("Tem Corridas");
+            return  CompeticoesWrc;
+        }else
+        {
+            System.out.println("Nao Tem Corridas");
+            return new ArrayList<>();
+        }
+    }
+
     public static List<Competicao> GetCompeticoesPorAno(List<Competicao> competicoes, int anoSelecionado)
     {
         List<Competicao> competicoesAnoSelecionado = new ArrayList<>();
