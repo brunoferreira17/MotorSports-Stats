@@ -12,7 +12,7 @@ import org.motorsportstatscore.entity.ID_Saver;
 import java.util.Date;
 import java.util.List;
 
-public class F1CompeticaoController
+public class MotoGPCompeticaoController
 {
     @FXML
     private Button BotaoEditarPerfil;
@@ -71,11 +71,10 @@ public class F1CompeticaoController
                 if (!row.isEmpty()) {
                     Corrida rowData = row.getItem();
                     ID_Saver.setId_corrida(rowData.getIdCorrida());
-                    Recursos.SceneSwitcher.switchScene("F1Corrida.fxml",row);
+                    Recursos.SceneSwitcher.switchScene("MotoGPCorrida.fxml",row);
                 }
             });
             return row;
         });
     }
 }
-

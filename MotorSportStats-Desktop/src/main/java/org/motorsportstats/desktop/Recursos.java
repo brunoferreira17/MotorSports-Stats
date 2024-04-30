@@ -54,10 +54,11 @@ public class Recursos
                 MiniPaginaEdicaoController Controller = loader.getController();
                 Controller.SetLabel(Text);
 
-                // Criar uma nova janela
+
                 Stage stage = new Stage();
                 stage.setScene(new Scene(root));
-                stage.showAndWait(); // Mostra a janela e espera até que ela seja fechada
+                stage.showAndWait();
+                stage.setResizable(false);
 
                 return Controller.getNovoOpcao();
 
@@ -66,5 +67,25 @@ public class Recursos
                 return null;
             }
         }
+        public static void openWindowToWarm(String fxmlFile, String Text)
+        {
+            try {
+                // Carregar o arquivo FXML
+                FXMLLoader loader = new FXMLLoader(WindowManager.class.getResource(fxmlFile));
+                Parent root = loader.load();
+
+                MiniPaginaAvisoController Controller = loader.getController();
+                Controller.SetLabel(Text);
+
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+                stage.showAndWait();
+                stage.setResizable(false);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
+
 }

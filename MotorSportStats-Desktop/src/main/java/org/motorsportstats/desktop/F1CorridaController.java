@@ -16,19 +16,25 @@
     public class F1CorridaController
     {
         @FXML
+        private ListView<String> ListaCompFav;
+        @FXML
+        private ListView<String> ListaEquipFav;
+        @FXML
+        private ListView<String> ListaPilotoFav;
+        @FXML
         private Button BotaoEditarPerfil;
         @FXML
         private Button BotaoAoVivo;
         @FXML
-        private TableView<ResultadosFormula1> TabelaCorrida;
+        private TableView<Resultados> TabelaCorrida;
         @FXML
-        private TableColumn<ResultadosFormula1, Integer> ColunaPosicao;
+        private TableColumn<Resultados, Integer> ColunaPosicao;
         @FXML
-        private TableColumn<ResultadosFormula1, String> ColunaPiloto;
+        private TableColumn<Resultados, String> ColunaPiloto;
         @FXML
-        private TableColumn<ResultadosFormula1, String> ColunaEquipa;
+        private TableColumn<Resultados, String> ColunaEquipa;
         @FXML
-        private TableColumn<ResultadosFormula1, String> ColunaTempo;
+        private TableColumn<Resultados, String> ColunaTempo;
         @FXML
         private Label LabelNomeCorrida;
         @FXML
@@ -45,20 +51,32 @@
 
         public void initialize()
         {
+            carregarDados();
+        }
+
+        private void carregarDados() {
+            Utilizador utilizadorLogado = AuthService.getUtilizadorLogado();
+
+            List<Competicao> competicoesFavoritas = Funcoes.GetCompeticoesFavoritasDoUtilizador(utilizadorLogado);
+            List<Equipa> EquipasFavoritos = Funcoes.GetEquipasFavoritasDoUtilizador(utilizadorLogado);
+            List<Piloto> PilotosFavoritos = Funcoes.GetPilotosFavoritosDoUtilizador(utilizadorLogado);
+
             atualizarTabelaCorridas(ID_Saver.getId_corrida());
+            carregarListasFavoritos(competicoesFavoritas, EquipasFavoritos, PilotosFavoritos);
         }
 
         private void atualizarTabelaCorridas(Integer id_corrida) {
             List<Object[]> results = Funcoes.obterResultadosPorCorrida(id_corrida);
-            List<ResultadosFormula1> resultados = new ArrayList<>();
+            List<Resultados> resultados = new ArrayList<>();
 
-            for (Object[] result : results) {
+            for (Object[] result : results)
+            {
                 int posicao = (int) result[0];
                 String pilotoNome = (String) result[1];
                 String equipaNome = (String) result[2];
                 String tempoFormatado = formatarTempo(result[3]);
 
-                resultados.add(new ResultadosFormula1(posicao, pilotoNome, equipaNome, tempoFormatado));
+                resultados.add(new Resultados(posicao, pilotoNome, equipaNome, tempoFormatado));
             }
 
             ColunaPosicao.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getPosicao()).asObject());
@@ -70,8 +88,24 @@
             TabelaCorrida.refresh();
         }
 
+        private void carregarListasFavoritos(List<Competicao> competicoesFavoritas, List<Equipa> EquipasFavoritos, List<Piloto> PilotosFavoritos) {
 
+            ListaCompFav.getItems().clear();
+            ListaEquipFav.getItems().clear();
+            ListaPilotoFav.getItems().clear();
 
+            for(Competicao competicao: competicoesFavoritas) {
+                ListaCompFav.getItems().add(competicao.getNome());
+            }
+
+            for(Equipa equipa : EquipasFavoritos) {
+                ListaEquipFav.getItems().add(equipa.getNome());
+            }
+
+            for(Piloto piloto : PilotosFavoritos) {
+                ListaPilotoFav.getItems().add(piloto.getNome());
+            }
+        }
 
         private String formatarTempo(Object tempoObjeto) {
             if (tempoObjeto instanceof PGInterval tempoIntervalo) {
@@ -88,8 +122,4 @@
                 return "Formato de tempo inválido";
             }
         }
-
-
-
-
     }
