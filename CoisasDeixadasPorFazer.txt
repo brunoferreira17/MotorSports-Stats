@@ -1,0 +1,6 @@
+-----Utilizador Normal-------
+Validaçoes de Login
+Validaçoes de Registro e Ediçao de Perfil(Incluir verificaçao de Email ja existente)
+
+-----Utilizador Admin--------
+Verificaçoes na Ediçao de Utilizador(Incluir verificaçao de Email ou ID ja existente)
