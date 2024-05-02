@@ -3,18 +3,15 @@ package org.motorsportstats.desktop;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import org.motorsportstats.services.Funcoes;
 import org.motorsportstatscore.entity.*;
 
-import java.time.LocalDate;
-import java.time.Year;
 import java.util.Date;
 import java.util.List;
 
-public class WrcCompeticaoController {
+public class WRCCompeticaoController {
 
     @FXML
     private Button BotaoEditarPerfil;

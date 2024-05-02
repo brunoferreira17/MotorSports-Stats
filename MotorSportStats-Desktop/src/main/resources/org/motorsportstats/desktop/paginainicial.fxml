@@ -41,7 +41,7 @@
             <Font name="Bernard MT Condensed" size="28.0" />
          </font>
       </Label>
-      <Label fx:id="butFechar" layoutX="653.0" layoutY="570.0" prefHeight="35.0" prefWidth="149.0" styleClass="botao-fechar" text="Fechar">
+      <Label fx:id="ButFechar" layoutX="653.0" layoutY="570.0" onMouseClicked="#handleButFechar" prefHeight="35.0" prefWidth="149.0" styleClass="botao-fechar" text="Fechar">
          <font>
             <Font name="Bernard MT Condensed" size="28.0" />
          </font>

@@ -178,7 +178,7 @@ public class Funcoes
 
         List<Competicao> CompeticoesWrc = DbConnection.getEntityManager()
                 .createQuery(jpql, Competicao.class)
-                .setParameter("tipoId", 1)
+                .setParameter("tipoId", 2)
                 .getResultList();
 
         /*WHERE u.data = :data*/
@@ -189,6 +189,29 @@ public class Funcoes
         }else
         {
             System.out.println("Nao Tem Corridas");
+            return new ArrayList<>();
+        }
+    }
+
+    public static List<Competicao> GetCompeticoesMotoGP()
+    {
+
+        String jpql = "SELECT DISTINCT c " +
+                "FROM Competicao c " +
+                "JOIN c.idTipoCompeticao tc " +
+                "WHERE tc.id = :tipoId";
+
+        List<Competicao> CompeticoesMotoGP = DbConnection.getEntityManager()
+                .createQuery(jpql, Competicao.class)
+                .setParameter("tipoId", 3)
+                .getResultList();
+
+        /*WHERE u.data = :data*/
+        if(!CompeticoesMotoGP.isEmpty())
+        {
+            return  CompeticoesMotoGP;
+        }else
+        {
             return new ArrayList<>();
         }
     }
