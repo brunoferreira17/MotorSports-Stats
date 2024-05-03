@@ -5,12 +5,12 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.ParameterMode;
 import jakarta.persistence.StoredProcedureQuery;
 import org.motorsportstatscore.entity.*;
-import org.motorsportstatscore.repository.DbConnection;
-import org.motorsportstatscore.repository.FavoritoRepository;
+import org.motorsportstatscore.repository.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Funcoes
@@ -257,5 +257,21 @@ public class Funcoes
         query.setParameter("id_corrida_escolhido", idCorrida);
 
         return query.getResultList();
+    }
+
+    public static void RemoverTodosOsFavoritosDoUtilizador(Utilizador utilizador)
+    {
+        Set<Favorito> favoritos = FavoritoRepository.findFavoritoUtilizador(utilizador.getId());
+
+        for(Favorito favorito : favoritos)
+        {
+            favorito.getCompeticaos().clear();
+            favorito.getEquipas().clear();
+            favorito.getPilotos().clear();
+
+            FavoritoRepository.apagar(favorito);
+        }
+
+        utilizador.getFavoritos().clear();
     }
 }

@@ -141,9 +141,11 @@ public class AoVivoController
                         competicaoHBox.getChildren().add(dataLabel);
 
                         competicaoHBox.setOnMouseClicked(event ->
-                                Recursos.SceneSwitcher.switchScene("desporto.fxml",competicaoHBox));
+                                Recursos.SceneSwitcher.switchScene("F1Competicao.fxml",competicaoHBox));
                         tipoCompeticaoAccordion.getPanes().add(tipoCompeticaoPane);
                         competicaoBox.getChildren().add(competicaoHBox);
+
+
                     }
                 }
 

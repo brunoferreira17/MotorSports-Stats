@@ -114,7 +114,7 @@ public class MotoGPController
                 if (!row.isEmpty()) {
                     Competicao rowData = row.getItem();
                     ID_Saver.setId_competicao(rowData.getId());
-                    Recursos.SceneSwitcher.switchScene("F1Competicao.fxml",row);
+                    Recursos.SceneSwitcher.switchScene("MotoGPCompeticao.fxml",row);
                 }
             });
             return row;
