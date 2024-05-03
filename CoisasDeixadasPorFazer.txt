@@ -4,3 +4,7 @@ Validaçoes de Registro e Ediçao de Perfil(Incluir verificaçao de Email ja exi
 
 -----Utilizador Admin--------
 Verificaçoes na Ediçao de Utilizador(Incluir verificaçao de Email ou ID ja existente)
+
+----Pg Admin-----
+Adicionar Coluna "notificacao_lida" na tabela "notificacao_utilizador"
+Trocrar nome da coluna "tipo_notificaçao" para "titulo_notificacao"

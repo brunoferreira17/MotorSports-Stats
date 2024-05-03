@@ -3,7 +3,6 @@ package org.motorsportstats.desktop;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import org.motorsportstats.services.Funcoes;
 import org.motorsportstatscore.entity.ID_Saver;
 import org.motorsportstatscore.entity.Utilizador;
 import org.motorsportstatscore.repository.UtilizadorRepository;
@@ -59,7 +58,6 @@ public class AdminEditarUtilizador
     private void handleButApagarUtilizador()
     {
         try {
-            Funcoes.RemoverTodosOsFavoritosDoUtilizador(utilizadorSelecionado);
             UtilizadorRepository.apagar(utilizadorSelecionado);
 
             Recursos.WindowManager.openWindowToWarm("MiniPaginaAviso.fxml", "Utilizador Apagado!");

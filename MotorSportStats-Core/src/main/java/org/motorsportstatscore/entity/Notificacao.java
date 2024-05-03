@@ -14,8 +14,8 @@ public class Notificacao {
     @Column(name = "id_notificacao", nullable = false)
     private Integer id;
 
-    @Column(name = "tipo_notificacao", length = 250)
-    private String tipoNotificacao;
+    @Column(name = "titulo_notificacao", length = 250)
+    private String tituloNotificacao;
 
     @Column(name = "mensagem", length = 250)
     private String mensagem;
@@ -37,12 +37,12 @@ public class Notificacao {
         this.id = id;
     }
 
-    public String getTipoNotificacao() {
-        return tipoNotificacao;
+    public String gettituloNotificacao() {
+        return tituloNotificacao;
     }
 
-    public void setTipoNotificacao(String tipoNotificacao) {
-        this.tipoNotificacao = tipoNotificacao;
+    public void settituloNotificacao(String tituloNotificacao) {
+        this.tituloNotificacao = tituloNotificacao;
     }
 
     public String getMensagem() {

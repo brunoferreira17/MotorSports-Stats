@@ -3,9 +3,10 @@ package org.motorsportstats.desktop;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import org.motorsportstatscore.entity.AuthService;
+import org.motorsportstatscore.entity.Notificacao;
 import org.motorsportstatscore.entity.Utilizador;
-import org.motorsportstatscore.repository.NotificacaoRepository;
-import org.motorsportstatscore.repository.NotificacaoUtilizadorRepository;
+
+import java.util.Set;
 
 public class MenuAdmin
 {
@@ -13,15 +14,20 @@ public class MenuAdmin
     private Button BotaoGerirUtilizadores;
     @FXML
     private Button BotaoEditarPerfil;
-    @FXML
-    private NotificacoesController notificacoesController;
+
 
     Utilizador utilizadorlogado = AuthService.getUtilizadorLogado();
 
     @FXML
     private void handleButNotificacao()
     {
-        notificacoesController.carregarNotificacoes(NotificacaoRepository.findNotificacaoUtilizador(utilizadorlogado.getId()));
+        Set<Notificacao> notificacoes = utilizadorlogado.getNotificacaos();
+
+        for(Notificacao notificacao : notificacoes)
+        {
+            System.out.println(notificacao.getMensagem());
+        }
+
     }
     @FXML
     private void handleButGerirUtilizadores()
@@ -32,7 +38,7 @@ public class MenuAdmin
     @FXML
     private void handleButEditarPerfil()
     {
-        Recursos.SceneSwitcher.switchScene("editarperfil.fxml",BotaoEditarPerfil);
+        Recursos.SceneSwitcher.switchScene("editarperfil.fxml", BotaoEditarPerfil);
     }
 
 

@@ -18,6 +18,9 @@ public class NotificacaoUtilizador {
     @JoinColumn(name = "id_notificacao", nullable = false)
     private Notificacao idNotificacao;
 
+    @Column(name = "notificacao_lida")
+    private Boolean notificacaoLida;
+
     public NotificacaoUtilizadorId getId() {
         return id;
     }

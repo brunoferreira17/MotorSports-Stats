@@ -41,7 +41,7 @@ public interface NotificacaoRepository extends JpaRepository<Notificacao, Long>,
         return DbConnection.getEntityManager().createQuery("from Notificacao", Notificacao.class).getResultList();
     }
 
-    public static List<Notificacao> listarWithType(String tipoNotificacao) {
-        return DbConnection.getEntityManager().createQuery("from Notificacao where tipoNotificacao = ?1", Notificacao.class).setParameter(1, tipoNotificacao).getResultList();
+    public static List<Notificacao> listarWithType(String tituloNotificacao) {
+        return DbConnection.getEntityManager().createQuery("from Notificacao where tituloNotificacao = ?1", Notificacao.class).setParameter(1, tituloNotificacao).getResultList();
     }
 }

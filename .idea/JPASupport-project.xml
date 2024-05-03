@@ -36,8 +36,7 @@
   <component name="DatabaseSettingsState">
     <option name="database" value="Projeto" />
     <option name="driverClass" value="org.postgresql.Driver" />
-    <option name="driverPath" value="C:\Users\bruno\Downloads\postgresql-42.7.3.jar" />
-    <option name="language" value="pt-PT" />
+    <option name="driverPath" value="C:\Users\user\Downloads\postgresql-42.7.2.jar" />
     <option name="port" value="5432" />
     <option name="schema" value="public" />
     <option name="url" value="jdbc:postgresql://localhost:5432/Projeto" />

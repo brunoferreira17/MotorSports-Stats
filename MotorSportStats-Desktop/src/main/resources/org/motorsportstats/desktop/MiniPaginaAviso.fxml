@@ -5,7 +5,7 @@
 <?import javafx.scene.text.*?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="211.0" prefWidth="432.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.motorsportstats.desktop.MiniPaginaAvisoController">
-   <Label fx:id="LabelOpcao" alignment="CENTER" layoutX="142.0" layoutY="58.0" prefHeight="25.0" prefWidth="149.0" text="(Palavra)">
+   <Label fx:id="LabelOpcao" alignment="CENTER" layoutX="12.0" layoutY="58.0" prefHeight="26.0" prefWidth="409.0" text="(Palavra)">
       <font>
          <Font name="Arial Black" size="17.0" />
       </font>
