@@ -7,4 +7,4 @@ Verificaçoes na Ediçao de Utilizador(Incluir verificaçao de Email ou ID ja ex
 
 ----Pg Admin-----
 Adicionar Coluna "notificacao_lida" na tabela "notificacao_utilizador"
-Trocrar nome da coluna "tipo_notificaçao" para "titulo_notificacao"
+Trocar nome da coluna "tipo_notificaçao" para "titulo_notificaca" na tabela "notificacao"

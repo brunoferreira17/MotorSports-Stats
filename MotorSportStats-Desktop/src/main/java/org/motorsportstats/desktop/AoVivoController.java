@@ -38,6 +38,8 @@ public class AoVivoController
     @FXML
     private Button BotaoMotoGP;
     @FXML
+    private Button BotaoWRC;
+    @FXML
     private void handleButbotaoTodos()
     {
         Recursos.SceneSwitcher.switchScene("desporto.fxml", BotaoTodos);
@@ -58,6 +60,12 @@ public class AoVivoController
     private void handleButMotoGP()
     {
         Recursos.SceneSwitcher.switchScene("MotoGP.fxml",BotaoMotoGP);
+    }
+
+    @FXML
+    private void handleButWRC()
+    {
+        Recursos.SceneSwitcher.switchScene("WRC.fxml",BotaoWRC);
     }
 
 
