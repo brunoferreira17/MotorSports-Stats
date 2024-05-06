@@ -18,6 +18,14 @@ public class NotificacaoUtilizador {
     @JoinColumn(name = "id_notificacao", nullable = false)
     private Notificacao idNotificacao;
 
+    public Boolean getNotificacaoLida() {
+        return notificacaoLida;
+    }
+
+    public void setNotificacaoLida(Boolean notificacaoLida) {
+        this.notificacaoLida = notificacaoLida;
+    }
+
     @Column(name = "notificacao_lida")
     private Boolean notificacaoLida;
 

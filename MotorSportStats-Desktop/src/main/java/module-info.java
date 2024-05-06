@@ -4,6 +4,7 @@ module org.motorsportstats.motorsportstatsdesktop {
     requires org.motorsportstatscore;
     requires org.motorsportstats.services;
     requires org.postgresql.jdbc;
+    requires jakarta.persistence;
 
 
     opens org.motorsportstats.desktop to javafx.fxml;

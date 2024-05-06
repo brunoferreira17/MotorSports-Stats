@@ -16,7 +16,7 @@ public class MenuAdmin
     @FXML
     private Button BotaoEditarPerfil;
     @FXML
-    private ListView<String> ListaNotificacao;
+    private ListView<Notificacao> ListaNotificacao;
 
     Utilizador utilizadorlogado = AuthService.getUtilizadorLogado();
 
@@ -57,7 +57,7 @@ public class MenuAdmin
         Set<Notificacao> notificacoes = utilizadorlogado.getNotificacaos();
 
         for (Notificacao notificacao : notificacoes) {
-            ListaNotificacao.getItems().add(notificacao.getMensagem());
+            ListaNotificacao.getItems().add(notificacao);
         }
     }
 

@@ -1,9 +1,7 @@
 package org.motorsportstats.services;
 
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.ParameterMode;
-import jakarta.persistence.StoredProcedureQuery;
+import jakarta.persistence.*;
 import org.motorsportstatscore.entity.*;
 import org.motorsportstatscore.repository.*;
 
@@ -273,5 +271,58 @@ public class Funcoes
         }
 
         utilizador.getFavoritos().clear();
+    }
+
+    public static boolean isNotificacaoLida(Notificacao notificacao, Utilizador utilizador) {
+        EntityManager em;
+
+        try {
+            em = DbConnection.getEntityManager();
+
+            // Verifica se a notificação foi marcada como lida pelo usuário
+            Long count = em.createQuery(
+                            "SELECT COUNT(nu) " +
+                                    "FROM NotificacaoUtilizador nu " +
+                                    "WHERE nu.idUtilizador = :utilizador AND nu.idNotificacao = :notificacao AND nu.notificacaoLida = true", Long.class)
+                    .setParameter("utilizador", utilizador)
+                    .setParameter("notificacao", notificacao)
+                    .getSingleResult();
+
+            return count > 0; // Retorna true se a notificação estiver marcada como lida pelo usuário
+        } catch (Exception e) {
+            // Tratar exceções, se necessário
+            e.printStackTrace();
+            return false; // Retorna false em caso de erro
+        }
+    }
+
+    public static void MarcarNotificacaoComoLida(Notificacao notificacao, Utilizador utilizador) {
+        EntityManager em = DbConnection.getEntityManager();
+        EntityTransaction transaction = em.getTransaction();
+
+        try {
+            transaction.begin();
+
+            NotificacaoUtilizador notificacaoUtilizador = em.createQuery(
+                            "SELECT nu FROM NotificacaoUtilizador nu " +
+                                    "WHERE nu.idUtilizador = :utilizador AND nu.idNotificacao = :notificacao", NotificacaoUtilizador.class)
+                    .setParameter("utilizador", utilizador)
+                    .setParameter("notificacao", notificacao)
+                    .getSingleResult();
+
+            notificacaoUtilizador.setNotificacaoLida(true);
+
+            transaction.commit();
+        } catch (Exception e) {
+            // Tratar exceções, se necessário
+            if (transaction.isActive()) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            if (em.isOpen()) {
+                em.close(); // Fechar o EntityManager após o uso
+            }
+        }
     }
 }

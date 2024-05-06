@@ -1,66 +1,73 @@
 package org.motorsportstats.desktop;
 
+import javafx.geometry.Pos;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.util.Callback;
+import org.motorsportstats.services.Funcoes;
 import org.motorsportstatscore.entity.Notificacao;
 import org.motorsportstatscore.entity.Utilizador;
 
-import java.util.Set;
+public class NotificacaoCellFactory implements Callback<ListView<Notificacao>, ListCell<Notificacao>> {
 
-public class NotificacaoCellFactory implements Callback<ListView<String>, ListCell<String>> {
+    private final Utilizador utilizadorLogado;
 
-    private final Utilizador utilizadorlogado;
-
-    public NotificacaoCellFactory(Utilizador utilizadorlogado) {
-        this.utilizadorlogado = utilizadorlogado;
+    public NotificacaoCellFactory(Utilizador utilizadorLogado) {
+        this.utilizadorLogado = utilizadorLogado;
     }
 
     @Override
-    public ListCell<String> call(ListView<String> listView) {
+    public ListCell<Notificacao> call(ListView<Notificacao> listView) {
         return new ListCell<>() {
             @Override
-            protected void updateItem(String item, boolean empty) {
-                super.updateItem(item, empty);
+            protected void updateItem(Notificacao notificacao, boolean empty) {
+                super.updateItem(notificacao, empty);
 
-                if (empty || item == null) {
+                if (empty || notificacao == null) {
                     setText(null);
                     setGraphic(null);
                 } else {
-                    // Recupera a notificação correspondente ao item
-                    Notificacao notificacao = getNotificacaoFromItem(item);
+                    // Cria uma VBox para organizar os elementos de layout
+                    VBox container = new VBox();
+                    container.setAlignment(Pos.CENTER);
 
-                    if (notificacao != null) {
-                        // Cria elementos de layout para exibir o título e a mensagem da notificação
-                        Label tituloLabel = new Label(notificacao.gettituloNotificacao());
-                        Label mensagemLabel = new Label(notificacao.getMensagem());
+                    // Cria uma Label para o título da notificação e a estiliza
+                    Label tituloLabel = new Label(notificacao.gettituloNotificacao());
+                    tituloLabel.setFont(Font.font("System", FontWeight.BOLD, 14));
 
-                        // Organiza os elementos de layout
-                        VBox container = new VBox(tituloLabel, mensagemLabel);
+                    // Cria uma Label para a mensagem da notificação
+                    Label mensagemLabel = new Label(notificacao.getMensagem());
 
-                        // Define a exibição do item
-                        setGraphic(container);
+                    // Verifica se a notificação foi marcada como lida
+                    boolean notificacaoLida = Funcoes.isNotificacaoLida(notificacao, utilizadorLogado);
+                    if (notificacaoLida) {
+                        // Se estiver marcada como lida, altera a cor do texto do título para cinza
+                        tituloLabel.setStyle("-fx-text-fill: rgb(128,128,128)");
+                    } else {
+                        // Caso contrário, mantém a cor padrão
+                        tituloLabel.setStyle("-fx-text-fill: black;");
                     }
+
+                    // Adiciona um listener de clique à célula de notificação
+                    setOnMouseClicked(event -> {
+                        if (!notificacaoLida) {
+                            Funcoes.MarcarNotificacaoComoLida(notificacao, utilizadorLogado);
+                            // Atualiza a cor do texto do título para cinza após marcar como lida
+                            tituloLabel.setStyle("-fx-text-fill: rgb(128,128,128)");
+                        }
+                        // Adicione aqui qualquer outra lógica que deseja executar quando uma notificação é clicada
+                    });
+
+                    // Adiciona as Labels à VBox
+                    container.getChildren().addAll(tituloLabel, mensagemLabel);
+
+                    // Define a exibição do item
+                    setGraphic(container);
                 }
-            }
-
-            // Método para obter a notificação correspondente ao item da ListView
-            private Notificacao getNotificacaoFromItem(String item) {
-                Set<Notificacao> notificacoes = utilizadorlogado.getNotificacaos();
-
-                // Itera sobre todas as notificações do usuário logado
-                for (Notificacao notificacao : notificacoes) {
-                    // Verifica se a mensagem da notificação é igual ao item da ListView
-                    if (notificacao.getMensagem().equals(item)) {
-                        // Se for igual, retorna a notificação correspondente
-                        return notificacao;
-                    }
-                }
-
-                // Se não encontrar a notificação correspondente, retorna null
-                return null;
             }
         };
     }

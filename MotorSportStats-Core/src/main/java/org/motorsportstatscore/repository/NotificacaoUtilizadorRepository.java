@@ -29,4 +29,5 @@ public interface NotificacaoUtilizadorRepository extends JpaRepository<Notificac
         NotificacaoUtilizador notifUtil = DbConnection.getEntityManager().find(NotificacaoUtilizador.class, idNotificacao);
         return notifUtil != null ? notifUtil.getIdUtilizador() : null;
     }
+
 }
