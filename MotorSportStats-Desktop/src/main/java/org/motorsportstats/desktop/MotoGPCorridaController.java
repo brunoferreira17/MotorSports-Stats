@@ -37,6 +37,19 @@ public class MotoGPCorridaController
     @FXML
     private Label LabelNomeCorrida;
     @FXML
+    private ListView<Notificacao> ListaNotificacao;
+    @FXML
+    private void handleButNotificacao()
+    {
+        if(ListaNotificacao.isVisible())
+        {
+            ListaNotificacao.setVisible(false);
+        } else if (!ListaNotificacao.isVisible())
+        {
+            ListaNotificacao.setVisible(true);
+        }
+    }
+    @FXML
     private void handleButEditarPerfil()
     {
         Recursos.SceneSwitcher.switchScene("editarperfil.fxml",BotaoEditarPerfil);

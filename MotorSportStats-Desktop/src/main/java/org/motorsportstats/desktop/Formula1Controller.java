@@ -29,9 +29,20 @@ public class Formula1Controller
     private TableView TabelaFormula1;
     @FXML
     private MenuButton MenuAnos;
-
     List<Competicao> competicoesFormula1 = Funcoes.GetCompeticoesFormula1();
-
+    @FXML
+    private ListView<Notificacao> ListaNotificacao;
+    @FXML
+    private void handleButNotificacao()
+    {
+        if(ListaNotificacao.isVisible())
+        {
+            ListaNotificacao.setVisible(false);
+        } else if (!ListaNotificacao.isVisible())
+        {
+            ListaNotificacao.setVisible(true);
+        }
+    }
     @FXML
     private void handleButEditarPerfil()
     {

@@ -12,6 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.ListView?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.motorsportstats.desktop.WRCCompeticaoController">
    <children>
       <AnchorPane layoutY="-6.0" prefHeight="101.0" prefWidth="800.0" style="-fx-background-color: #4599de;">
@@ -27,6 +28,7 @@
                </font>
             </Label>
             <Button layoutX="687.0" layoutY="31.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="38.0" />
+            <Button fx:id="BotaoNotificacao" layoutX="687.0" layoutY="31.0" mnemonicParsing="false" onAction="#handleButNotificacao" prefHeight="38.0" prefWidth="38.0" />
             <Button fx:id="BotaoEditarPerfil" layoutX="737.0" layoutY="31.0" mnemonicParsing="false" onAction="#handleButEditarPerfil" prefHeight="38.0" prefWidth="38.0" />
             <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="691.0" layoutY="35.0">
                <image>
@@ -60,5 +62,6 @@
             <TableColumn fx:id="País" prefWidth="274.0" text="Vencedor" />
         </columns>
       </TableView>
+      <ListView fx:id="ListaNotificacao" layoutX="474.0" layoutY="27.0" prefHeight="200.0" prefWidth="200.0" visible="false" />
    </children>
 </AnchorPane>

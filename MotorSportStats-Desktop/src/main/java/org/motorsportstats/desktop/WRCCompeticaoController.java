@@ -25,8 +25,19 @@ public class WRCCompeticaoController {
     private TableColumn<Corrida, String> País;
     @FXML
     private TableView TabelaWrc;
-
-
+    @FXML
+    private ListView<Notificacao> ListaNotificacao;
+    @FXML
+    private void handleButNotificacao()
+    {
+        if(ListaNotificacao.isVisible())
+        {
+            ListaNotificacao.setVisible(false);
+        } else if (!ListaNotificacao.isVisible())
+        {
+            ListaNotificacao.setVisible(true);
+        }
+    }
     @FXML
     private void handleButEditarPerfil()
     {

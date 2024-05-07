@@ -40,6 +40,19 @@ public class AoVivoController
     @FXML
     private Button BotaoWRC;
     @FXML
+    private ListView<Notificacao> ListaNotificacao;
+    @FXML
+    private void handleButNotificacao()
+    {
+        if(ListaNotificacao.isVisible())
+        {
+            ListaNotificacao.setVisible(false);
+        } else if (!ListaNotificacao.isVisible())
+        {
+            ListaNotificacao.setVisible(true);
+        }
+    }
+    @FXML
     private void handleButbotaoTodos()
     {
         Recursos.SceneSwitcher.switchScene("desporto.fxml", BotaoTodos);

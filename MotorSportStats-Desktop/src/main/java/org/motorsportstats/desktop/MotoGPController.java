@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import org.motorsportstats.services.Funcoes;
 import org.motorsportstatscore.entity.Competicao;
 import org.motorsportstatscore.entity.ID_Saver;
+import org.motorsportstatscore.entity.Notificacao;
 
 import java.time.LocalDate;
 import java.time.Year;
@@ -30,9 +31,20 @@ public class MotoGPController
     private TableView TabelaMotoGP;
     @FXML
     private MenuButton MenuAnos;
-
     List<Competicao> competicoesMotoGP = Funcoes.GetCompeticoesMotoGP();
-
+    @FXML
+    private ListView<Notificacao> ListaNotificacao;
+    @FXML
+    private void handleButNotificacao()
+    {
+        if(ListaNotificacao.isVisible())
+        {
+            ListaNotificacao.setVisible(false);
+        } else if (!ListaNotificacao.isVisible())
+        {
+            ListaNotificacao.setVisible(true);
+        }
+    }
     @FXML
     private void handleButEditarPerfil()
     {

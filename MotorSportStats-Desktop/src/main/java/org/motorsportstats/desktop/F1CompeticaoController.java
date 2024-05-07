@@ -8,6 +8,7 @@ import javafx.scene.control.*;
 import org.motorsportstats.services.Funcoes;
 import org.motorsportstatscore.entity.Corrida;
 import org.motorsportstatscore.entity.ID_Saver;
+import org.motorsportstatscore.entity.Notificacao;
 
 import java.util.Date;
 import java.util.List;
@@ -26,8 +27,19 @@ public class F1CompeticaoController
     private TableColumn<Corrida, String> País;
     @FXML
     private TableView TabelaFormula1;
-
-
+    @FXML
+    private ListView<Notificacao> ListaNotificacao;
+    @FXML
+    private void handleButNotificacao()
+    {
+        if(ListaNotificacao.isVisible())
+        {
+            ListaNotificacao.setVisible(false);
+        } else if (!ListaNotificacao.isVisible())
+        {
+            ListaNotificacao.setVisible(true);
+        }
+    }
     @FXML
     private void handleButEditarPerfil()
     {

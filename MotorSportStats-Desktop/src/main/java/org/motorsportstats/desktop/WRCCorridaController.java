@@ -12,7 +12,7 @@ import org.postgresql.util.PGInterval;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WRCCorrida
+public class WRCCorridaController
 {
     @FXML
     private ListView<String> ListaCompFav;
@@ -36,6 +36,20 @@ public class WRCCorrida
     private TableColumn<Resultados, String> ColunaTempo;
     @FXML
     private Label LabelNomeCorrida;
+    @FXML
+    private ListView<Notificacao> ListaNotificacao;
+
+    @FXML
+    private void handleButNotificacao()
+    {
+        if(ListaNotificacao.isVisible())
+        {
+            ListaNotificacao.setVisible(false);
+        } else if (!ListaNotificacao.isVisible())
+        {
+            ListaNotificacao.setVisible(true);
+        }
+    }
     @FXML
     private void handleButEditarPerfil()
     {

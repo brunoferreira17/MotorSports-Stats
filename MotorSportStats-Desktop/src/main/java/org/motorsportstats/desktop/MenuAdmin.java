@@ -23,7 +23,6 @@ public class MenuAdmin
     @FXML
     private void handleButNotificacao()
     {
-
         if(ListaNotificacao.isVisible())
         {
             ListaNotificacao.setVisible(false);
@@ -31,8 +30,6 @@ public class MenuAdmin
         {
             ListaNotificacao.setVisible(true);
         }
-
-
     }
     @FXML
     private void handleButGerirUtilizadores()

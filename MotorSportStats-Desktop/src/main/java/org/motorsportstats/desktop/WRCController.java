@@ -29,8 +29,23 @@ public class WRCController {
     private TableView TabelaWrc;
     @FXML
     private MenuButton MenuAnos;
+    @FXML
+    private ListView<Notificacao> ListaNotificacao;
 
     List<Competicao> competicoesWrc = Funcoes.GetCompeticoesWrc();
+    Utilizador utilizadorlogado = AuthService.getUtilizadorLogado();
+
+    @FXML
+    private void handleButNotificacao()
+    {
+        if(ListaNotificacao.isVisible())
+        {
+            ListaNotificacao.setVisible(false);
+        } else if (!ListaNotificacao.isVisible())
+        {
+            ListaNotificacao.setVisible(true);
+        }
+    }
 
     @FXML
     private void handleButEditarPerfil()
