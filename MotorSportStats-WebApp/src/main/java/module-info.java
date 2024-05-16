@@ -1,8 +1,13 @@
-module org.motorsportstats.motorsportsatswebapp {
-    requires javafx.controls;
-    requires javafx.fxml;
+module MotorSportStats.WebApp
+{
+    requires org.motorsportstatscore;
+    requires org.motorsportstats.services;
+    requires spring.context;
+    requires spring.web;
+    requires spring.boot.autoconfigure;
+    requires spring.boot;
 
+    exports org.motorsportstatswebapp;
+    opens org.motorsportstatswebapp;
 
-    opens org.motorsportstats.motorsportsatswebapp to javafx.fxml;
-    exports org.motorsportstats.motorsportsatswebapp;
 }
