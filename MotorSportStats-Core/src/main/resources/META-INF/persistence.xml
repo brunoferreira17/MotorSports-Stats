@@ -16,6 +16,7 @@
         <class>org.motorsportstatscore.entity.NotificacaoUtilizadorId</class>
         <class>org.motorsportstatscore.entity.EquipaFavoritoId</class>
         <class>org.motorsportstatscore.entity.EquipaCompeticaoId</class>
+        <class>org.motorsportstatscore.entity.Equipa</class>
         <class>org.motorsportstatscore.entity.CorridaVolta</class>
         <class>org.motorsportstatscore.entity.CorridaStage</class>
         <class>org.motorsportstatscore.entity.CompeticaoFavoritoId</class>

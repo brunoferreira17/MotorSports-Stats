@@ -26,8 +26,9 @@ public class Equipa {
     private Set<Competicao> competicaos = new LinkedHashSet<>();
 
     @ManyToMany
-    @JoinTable(joinColumns = @JoinColumn(name = "id_equipa"),
-            inverseJoinColumns = @JoinColumn(name = "id_favoritos"))
+    @JoinTable(name = "equipa_favorito" ,
+            joinColumns = @JoinColumn(name = "id_equipa"),
+            inverseJoinColumns = @JoinColumn(name = "id_favorito"))
     private Set<Favorito> favoritos = new LinkedHashSet<>();
 
     @OneToMany(mappedBy = "idEquipa")
