@@ -8,9 +8,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class testeController {
 
     @GetMapping("/minhaPagina")
-    public String minhaPagina(Model model) {
+    public String minhaPagina(Model model)
+    {
         // Adicione quaisquer dados que você deseja passar para a página
-        model.addAttribute("dynamicValue", "Este valor é dinâmico!");
+        model.addAttribute("dynamicValue", "FC Porto!");
+
         return "index"; // O nome do arquivo HTML sem a extensão
 
 
