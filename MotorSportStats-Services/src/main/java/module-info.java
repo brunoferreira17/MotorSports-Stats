@@ -7,6 +7,9 @@ module org.motorsportstats.services {
     requires java.persistence;
     requires spring.context;
     requires org.hibernate.orm.core;
+    requires spring.beans;
+    requires spring.tx;
+    requires spring.data.commons;
 
 
     opens org.motorsportstats.services to javafx.fxml;

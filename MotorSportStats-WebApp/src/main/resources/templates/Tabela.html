@@ -7,21 +7,29 @@
 </head>
 <body>
 <h1>Tabela de Dados</h1>
-<table border="1">
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>NOME</th>
-        <th>NACIONALIDADE</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="piloto : ${Pilotos}">
-        <td th:text="${piloto.getId()}"></td>
-        <td th:text="${piloto.getNome()}"></td>
-        <td th:text="${piloto.getNacionalidade()}"></td>
-    </tr>
-    </tbody>
-</table>
+<!-- Verifica se a lista de pilotos não está vazia -->
+<th:block th:if="${not #lists.isEmpty(Pilotos)}">
+    <table border="1">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>NOME</th>
+            <th>NACIONALIDADE</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Itera sobre a lista de pilotos -->
+        <tr th:each="piloto : ${Pilotos}">
+            <td th:text="${piloto.getId()}"></td>
+            <td th:text="${piloto.getNome()}"></td>
+            <td th:text="${piloto.getNacionalidade()}"></td>
+        </tr>
+        </tbody>
+    </table>
+</th:block>
+<!-- Se a lista de pilotos estiver vazia, exibe uma mensagem -->
+<th:block th:if="${#lists.isEmpty(Pilotos)}">
+    <p>Não há pilotos para exibir.</p>
+</th:block>
 </body>
 </html>

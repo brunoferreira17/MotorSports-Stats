@@ -8,7 +8,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <java.version>11</java.version> <!-- Use a versão que você realmente está usando, como 11 ou 21 -->
+        <java.version>17</java.version>
         <spring.boot.version>2.5.0</spring.boot.version>
     </properties>
 
@@ -41,7 +41,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version> <!-- Certifique-se de usar uma versão recente -->
+                <version>3.8.1</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>

@@ -11,4 +11,5 @@ module org.motorsportstatscore
     opens org.motorsportstatscore.repository to org.hibernate.orm.core;
     exports org.motorsportstatscore.entity;
     exports org.motorsportstatscore.repository;
+    exports org.motorsportstatscore;
 }

@@ -1,6 +1,5 @@
 package org.motorsportstats.services;
 
-
 import jakarta.persistence.*;
 import org.motorsportstatscore.entity.*;
 import org.motorsportstatscore.repository.*;
