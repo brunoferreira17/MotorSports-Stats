@@ -22,7 +22,6 @@
         <class>org.motorsportstatscore.entity.CompeticaoFavoritoId</class>
         <class>org.motorsportstatscore.entity.Resultado</class>
         <class>org.motorsportstatscore.entity.ResultadoPiloto</class>
-        <class>org.motorsportstatscore.entity.ResultadoPilotoId</class>
         <class>org.motorsportstatscore.entity.CompeticaoFavorito</class>
         <class>org.motorsportstatscore.entity.Corrida</class>
         <class>org.motorsportstatscore.entity.EquipaCompeticao</class>
@@ -36,7 +35,9 @@
             <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/Projeto"/>
             <property name="jakarta.persistence.jdbc.user" value="postgres"/>
+            <property name="jakarta.persistence.jdbc.password" value="1893"/>
             <property name="hibernate.show_sql" value="true"/>
+
             <!-- Configurações do provedor JPA (Hibernate, EclipseLink, etc.) -->
             <property name="jakarta.persistence.provider" value="org.hibernate.jpa.HibernatePersistenceProvider"/>
 
