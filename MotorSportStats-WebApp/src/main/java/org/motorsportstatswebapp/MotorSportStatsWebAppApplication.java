@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ImportResource;
 
 @SpringBootApplication
 @ComponentScan({"org.motorsportstatswebapp", "org.motorsportstats.services", "org.motorsportstatscore"})
-@ImportResource(locations = "classpath:META-INF/persistence.xml")
+@ImportResource("classpath:spring-config.xml")
 public class MotorSportStatsWebAppApplication {
 
     public static void main(String[] args) {
