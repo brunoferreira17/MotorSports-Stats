@@ -1,8 +1,7 @@
-package org.motorsportstatswebapp;
+/*package org.motorsportstatswebapp;
 
-import org.motorsportstats.services.Implementations.PilotoRepositoryImp;
-import org.motorsportstatscore.entity.Piloto;
-import org.motorsportstatscore.repository.PilotoRepository;
+import org.motorsportstatswebapp.entity.Piloto;
+import org.motorsportstatswebapp.service.PilotoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,14 +13,13 @@ import java.util.List;
 public class TabelaController
 {
     @Autowired
-    private PilotoRepositoryImp pilotoRepository;
+    private PilotoService pilotoRepository;
 
-
-    @GetMapping("/TabelaPilotos")
-    public String TabelaPilotos(Model model)
-    {
-        List<Piloto> Pilotos = pilotoRepository.listar();
-        model.addAttribute("Pilotos", Pilotos);
+    @GetMapping("/pilotos")
+    public String listarPilotos(Model model) {
+        List<Piloto> pilotos = pilotoRepository.findAll();
+        model.addAttribute("pilotos", pilotos);
         return "Tabela";
     }
-}
+
+}*/
